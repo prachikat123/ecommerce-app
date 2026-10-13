@@ -2,8 +2,7 @@
 
 A complete, runnable full-stack e-commerce application for Indian agri-inputs
 (seeds, fertilizer, pesticides, equipment, irrigation, organic, gardening and
-animal feed), recreated from the **KrishiBazaar "Agro-Modern" Google Stitch
-design**.
+animal feed).
 
 - **Frontend:** React 18 + Vite + TypeScript + Tailwind CSS + React Router + TanStack Query
 - **Backend:** Node.js + Express + TypeScript REST API
