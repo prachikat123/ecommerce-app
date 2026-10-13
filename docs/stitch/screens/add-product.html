@@ -1,0 +1,598 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed": "#2f1500", "surface-bright": "#faf8ff", "surface-tint": "#006d30", "on-primary": "#ffffff", "surface-container-low": "#f2f3ff", "on-surface": "#131b2e", "secondary": "#006e2f", "surface-variant": "#dae2fd", "surface-container": "#eaedff", "primary": "#00652c", "outline": "#6f7a6e", "secondary-fixed-dim": "#4ae176", "secondary-container": "#6bff8f", "surface": "#faf8ff", "on-secondary-fixed-variant": "#005321", "inverse-surface": "#283044", "surface-container-high": "#e2e7ff", "outline-variant": "#becabc", "inverse-primary": "#79db8d", "on-primary-fixed": "#00210a", "tertiary-fixed": "#ffdcc3", "surface-container-lowest": "#ffffff", "surface-container-highest": "#dae2fd", "on-surface-variant": "#3f493f", "on-primary-container": "#d3ffd5", "on-tertiary-container": "#fff1e9", "on-secondary-container": "#007432", "on-tertiary": "#ffffff", "secondary-fixed": "#6bff8f", "error-container": "#ffdad6", "inverse-on-surface": "#eef0ff", "on-primary-fixed-variant": "#005323", "on-tertiary-fixed-variant": "#6e3900", "background": "#faf8ff", "primary-fixed-dim": "#79db8d", "tertiary-fixed-dim": "#ffb77d", "on-secondary": "#ffffff", "on-secondary-fixed": "#002109", "tertiary": "#854600", "tertiary-container": "#a95b00", "primary-fixed": "#95f8a7", "on-error-container": "#93000a", "on-error": "#ffffff", "surface-dim": "#d2d9f4", "on-background": "#131b2e", "primary-container": "#15803d", "error": "#ba1a1a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1rem", "space-2xl": "2rem", "gutter-desktop": "1.5rem", "space-md": "0.75rem", "margin-tablet": "1.5rem", "margin-desktop": "2.5rem", "space-sm": "0.5rem", "space-xl": "1.5rem", "margin": "1rem", "gutter": "1rem", "space-xs": "0.25rem", "space-3xl": "3rem" }, "fontFamily": { "title-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["Inter"], "price-hero": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "price-card": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-md": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-md": ["Inter"], "title-lg": ["Plus Jakarta Sans"] }, "fontSize": { "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "price-hero": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "800" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "price-card": ["20px", { "lineHeight": "24px", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }] } } } }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="px-space-xl pt-space-xl pb-space-lg"><div class="flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[24px]">agriculture</span></div><div><div class="flex items-center gap-space-xs"><span class="font-title-lg text-title-lg text-primary tracking-tight">KrishiBazaar</span></div><span class="font-label-md text-label-md text-on-surface-variant block">Kisan Vyapar Hub</span></div></div><div class="mt-space-md p-space-sm rounded-lg bg-surface-container flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-pulse shrink-0"></span><div class="min-w-0"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">FPO Cluster Node</span><p class="font-label-md text-label-md text-on-surface truncate">Nashik Agro - FPO #4029</p></div></div><span class="material-symbols-outlined text-secondary text-[18px] shrink-0">verified</span></div></div><nav class="px-space-md space-y-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-title-md text-title-md">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="my-products" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span class="font-title-md text-title-md">My Products</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="add-product" href="#"><span class="material-symbols-outlined text-[20px]">add_circle</span><span class="font-title-md text-title-md">Add Product</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="orders" href="#"><span class="material-symbols-outlined text-[20px]">local_shipping</span><span class="font-title-md text-title-md">Orders</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="customers" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-title-md text-title-md">Customers</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="inventory" href="#"><span class="material-symbols-outlined text-[20px]">warehouse</span><span class="font-title-md text-title-md">Inventory</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="sales" href="#"><span class="material-symbols-outlined text-[20px]">trending_up</span><span class="font-title-md text-title-md">Sales</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="payments" href="#"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="font-title-md text-title-md">Payments</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="reviews" href="#"><span class="material-symbols-outlined text-[20px]">grade</span><span class="font-title-md text-title-md">Reviews</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="profile" href="#"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="font-title-md text-title-md">Profile</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] mb-space-sm"><div class="flex items-center gap-space-xs text-primary mb-space-xs"><span class="material-symbols-outlined text-[18px]">support_agent</span><span class="font-label-sm text-label-sm uppercase tracking-wide">Farmer Helpdesk</span></div><div class="font-title-md text-title-md text-on-surface">1800-419-KRISHI</div><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Toll-Free Agronomy &amp; Mandi Tech Desk</p></div><div class="flex items-center justify-between px-space-sm py-space-xs text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[16px]">shield</span><span class="font-label-sm text-label-sm">ICAR &amp; AgriStack Verified</span></div><span class="font-label-sm text-label-sm bg-surface-container px-space-xs py-0.5 rounded">v2.4</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-xl flex-1 max-w-2xl"><div class="relative w-full max-w-md"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full h-10 pl-10 pr-space-md bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary shadow-[0_1px_8px_rgba(0,0,0,0.04)]" placeholder="Search products, mandi orders, buyers..." type="text"></div><div class="hidden xl:flex items-center gap-space-sm px-space-md py-1.5 rounded-full bg-surface-container-high"><span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span><span class="font-label-md text-label-md text-on-surface truncate">APMC Lasalgaon: Live Sync Active</span></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded-lg"><span class="material-symbols-outlined text-on-surface-variant text-[18px]">language</span><select aria-label="Portal Language" class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none cursor-pointer"><option value="en">English</option><option value="mr">मराठी</option><option value="hi">हिन्दी</option></select></div><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-label-sm flex items-center justify-center font-bold">5</span></button><div class="h-8 w-px bg-surface-variant"></div><div class="flex items-center gap-space-md pl-space-xs"><div class="text-right hidden sm:block"><div class="flex items-center justify-end gap-1"><span class="font-label-md text-label-md text-on-surface">MahaAgro Producer Co.</span><span class="material-symbols-outlined text-secondary text-[14px]">verified</span></div><div class="font-label-sm text-label-sm text-on-surface-variant">FPO-MH-2023-088</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-title-md text-title-md shadow-sm"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><button aria-label="Switch Account or Logout" class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container transition-colors" title="Switch Account / Logout"><span class="material-symbols-outlined text-[20px]">logout</span></button></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="px-space-xl py-space-xl max-w-[1360px] mx-auto w-full space-y-space-xl">
+<!-- Top Action Breadcrumb & Header Banner -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-space-md">
+<div class="space-y-space-xs">
+<nav class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">dashboard</span> Dashboard
+          </a>
+<span>/</span>
+<a class="hover:text-primary transition-colors" href="#">My Products</a>
+<span>/</span>
+<span class="text-on-surface font-semibold">Add New Product</span>
+</nav>
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Add Agricultural Product / Input 🌾</h1>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase font-bold tracking-wider">
+            ICAR Level-3 Compliant
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+          List certified seeds, fertilizers, crop protection, or fresh harvest produce across Western Maharashtra farmer networks &amp; direct agricultural buyers.
+        </p>
+</div>
+<!-- Quick Action Buttons -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-12 px-space-lg rounded-xl bg-surface-container-high text-on-surface font-title-md text-title-md hover:bg-surface-variant transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">close</span>
+          Discard
+        </button>
+<button class="h-12 px-space-lg rounded-xl bg-surface-container-lowest text-primary font-title-md text-title-md shadow-sm hover:bg-surface-container-low transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">save</span>
+          Save Draft
+        </button>
+<button class="h-12 px-space-xl rounded-xl bg-primary text-on-primary font-title-md text-title-md shadow-md hover:bg-primary-container active:scale-[0.98] transition-all flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+          Publish Product
+        </button>
+</div>
+</div>
+<!-- Main Grid Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Primary Form Canvas (8 Columns) -->
+<div class="lg:col-span-8 space-y-space-xl">
+<!-- SECTION 1: Basic Information & Taxonomy -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm space-y-space-lg">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">info</span>
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">1. Basic Information &amp; Taxonomy</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Core agricultural identification and crop taxonomy classification</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-space-sm py-1 rounded text-on-surface-variant font-medium">Step 1 of 6</span>
+</div>
+<div class="space-y-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">
+                Product Title / Listing Name <span class="text-error">*</span>
+</label>
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner placeholder:text-outline-variant" id="input-title" placeholder="e.g. Mahyco Hybrid Chilli Seeds Tejas-4, Multiplex Zinc Fertilizer" type="text" value="Namdhari Hybrid Tomato Seeds NS-501 (High Germination)">
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">tips_and_updates</span>
+                Include crop type, variety code, and core trait (e.g., Wilt Tolerant, High Yield) for optimal search discovery.
+              </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">
+                  Category &amp; Agri Classification <span class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-12 pl-space-md pr-10 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none appearance-none cursor-pointer">
+<option selected="">Seeds &amp; Certified Seedlings</option>
+<option>Fertilizers &amp; Soil Nutrition</option>
+<option>Crop Protection &amp; Pesticides</option>
+<option>Farm Machinery, Sprayers &amp; Tools</option>
+<option>Organic &amp; Bio-Inputs</option>
+<option>Fresh Harvest Produce (FPO Direct)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">
+                  Brand / Producer FPO Entity <span class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-12 pl-space-md pr-10 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none appearance-none cursor-pointer">
+<option selected="">Namdhari Seeds Pvt. Ltd.</option>
+<option>MahaAgro Producer Co. (Own Node)</option>
+<option>IFFCO Agri Inputs</option>
+<option>Multiplex Bio-Tech</option>
+<option>Bayer CropScience India</option>
+<option>Syngenta India Ltd.</option>
+<option>Mahyco Seeds</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">
+                Target Suitable Crops (Multi-Select)
+              </label>
+<div class="flex flex-wrap gap-space-xs p-space-sm rounded-xl bg-surface-container-low">
+<span class="inline-flex items-center gap-1 px-space-md py-1 rounded-full bg-primary text-on-primary font-label-md text-label-md">
+                  Tomato <button class="hover:text-error-container"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-space-md py-1 rounded-full bg-primary text-on-primary font-label-md text-label-md">
+                  Chilli <button class="hover:text-error-container"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-space-md py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant font-label-md text-label-md cursor-pointer">
+                  + Onion
+                </span>
+<span class="inline-flex items-center gap-1 px-space-md py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant font-label-md text-label-md cursor-pointer">
+                  + Soybean
+                </span>
+<span class="inline-flex items-center gap-1 px-space-md py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant font-label-md text-label-md cursor-pointer">
+                  + Cotton
+                </span>
+<span class="inline-flex items-center gap-1 px-space-md py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant font-label-md text-label-md cursor-pointer">
+                  + Pomegranate
+                </span>
+<span class="inline-flex items-center gap-1 px-space-md py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant font-label-md text-label-md cursor-pointer">
+                  + Sugarcane
+                </span>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-md text-label-md text-on-surface">Product Agronomy Summary &amp; Description</label>
+<div class="flex items-center gap-1 bg-surface-container rounded-lg p-0.5">
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant" type="button"><span class="material-symbols-outlined text-[16px]">format_bold</span></button>
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant" type="button"><span class="material-symbols-outlined text-[16px]">format_italic</span></button>
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant" type="button"><span class="material-symbols-outlined text-[16px]">format_list_bulleted</span></button>
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant" type="button"><span class="material-symbols-outlined text-[16px]">verified</span></button>
+</div>
+</div>
+<textarea class="w-full p-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all resize-y placeholder:text-outline-variant" placeholder="Detail germination specifications, soil suitability, disease tolerance, and harvest guidelines..." rows="4">NS-501 is a vigorous indeterminate hybrid tomato known for exceptional firmness and deep crimson fruit quality. High tolerance to Tomato Leaf Curl Virus (ToLCV) and Bacterial Wilt. Excellent field holding capacity suitable for long-distance transport from Nashik and Pune mandis to southern consumption terminals.</textarea>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Media & Product Images -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm space-y-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">2. Media &amp; Visual Verification</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-resolution packaging, seed tags, and ICAR laboratory test certificates</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-low px-space-sm py-1 rounded-full flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span> Recommended: 3+ Photos
+            </span>
+</div>
+<!-- Drag & Drop Upload Zone -->
+<div class="p-space-xl rounded-2xl bg-surface-container-low flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container transition-all group">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm group-hover:scale-105 transition-transform mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">cloud_upload</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface">
+              Drop product photos here or <span class="text-primary underline">Browse from Device</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Supports PNG, JPG, WebP up to 10MB each (Minimum 800×800px recommended)
+            </p>
+<div class="mt-space-md inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">stars</span>
+              Pro Tip: Uploading clear front pack photo + ICAR seed lot tag speeds up mandi listing verification by 3x
+            </div>
+</div>
+<!-- Thumbnail Mosaic -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-md">
+<!-- Photo 1: Main Packaging -->
+<div class="relative group rounded-xl overflow-hidden bg-surface-container-high aspect-square shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Clear studio product photograph of Namdhari NS-501 commercial hybrid tomato seed packet with vibrant red tomato fruit graphics, ICAR certification mark, net weight 10g pouch on clean neutral agricultural surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXhgIcYCajY2qlgeMoijurc2n7KYztSVidAVM-GX2Tm5mZXDBRiikIEq3V9pfCfrr1B83ff3MD505EuOybwxaGqtCG6XkU2Hy9OT3ktSgG9vrOJHah-l8L-4OK0l2t-ocnb4algdPnN0JVV2XlrQu-Bnt5KZ-MULyVBFeU6yySycLpbSSdiOed3XGlniFp168efdt2I9opYOhGBVQ0bnlC6PB_ogeq4UE1xcORUw">
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm uppercase font-bold tracking-wider shadow">
+                Primary Pack
+              </div>
+<button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-surface/90 text-error flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+<!-- Photo 2: Germination Trial -->
+<div class="relative group rounded-xl overflow-hidden bg-surface-container-high aspect-square shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close up photograph of vibrant healthy green tomato seedling sprouts growing in controlled nursery plug trays showing high vigor and robust root development in Maharashtra agronomy nursery greenhouse." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsVll1B5_AhsTuI-0_Xp4BmL6FN5fBLW-5lRwTUAVz0XmvJgmB3zYimaKvjVwziDXqmNdKR5UYUBtcjCD63KZ0R8VTiIr7e4lQsKogmM3wA437_ydM6U-2Bkhreb80L8CN-SdZUSggqfwJ6BKzD0o0Kvy0QHETeonILzDVyRsZV-IWeWfuQieoQ1o8CZpc4Q-im5ZDszDZKE8CvCcQaInVYurKuS9Iv55SDeQ6qQ">
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm shadow">
+                Trial Vigor
+              </div>
+<button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-surface/90 text-error flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+<!-- Photo 3: Lab Analysis Certificate -->
+<div class="relative group rounded-xl overflow-hidden bg-surface-container-high aspect-square shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Official seed quality analysis certificate document with official government ICAR agricultural stamp, seed testing laboratory stamp, batch purity figures, and signature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCquCWbDqLereNCLnTVEr-fLVA8L5DnL4a4COQjdY1kWxBQiJ334l_56qehQ3_sbOKOCLL-EbZmr6DpYY-is9FJ-9SIK2OQRNd3EMb4aBGE5yDezJVk9OzErMTJx8uvEf7SVsM-PX3zwV9ziAinWhZ0b_tKgS0LETexUTp6iAg-Ei5e6z3PCuk5-pWFYLt8tVwwkFsxFMXFJCcTUN76zpkviktrVL1RljRBgaoKLg">
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm shadow">
+                ICAR Tag
+              </div>
+<button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-surface/90 text-error flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+<!-- Photo 4: Add Slot -->
+<button class="rounded-xl bg-surface-container-low hover:bg-surface-container aspect-square flex flex-col items-center justify-center gap-space-xs text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[28px]">add_photo_alternate</span>
+<span class="font-label-md text-label-md font-semibold">+ Add Media</span>
+</button>
+</div>
+</section>
+<!-- SECTION 3: Product Specifications & Agronomic Details -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm space-y-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">science</span>
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">3. Agronomic Specifications &amp; Quality Parameters</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Standardized parameters required for farmer guarantee cards &amp; MSP verification</p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Variety Growth Habit</label>
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" type="text" value="Indeterminate Hybrid">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Germination Rate Guarantee</label>
+<div class="relative">
+<input class="w-full h-11 pl-space-md pr-8 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" type="text" value="92% Min. Germination">
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-secondary text-[18px]">verified</span>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Physical Purity</label>
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" type="text" value="98.5% Purity">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Days to First Harvest / Maturity</label>
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" type="text" value="65 - 70 Days Post Transplant">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Primary Sowing Seasons</label>
+<select class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none">
+<option selected="">Kharif &amp; Rabi (Dual Season)</option>
+<option>Kharif (Monsoon Only)</option>
+<option>Rabi (Winter Only)</option>
+<option>Zaid (Summer Irrigated)</option>
+<option>All Seasons (Polyhouse/Protected)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Plant &amp; Row Spacing</label>
+<input class="w-full h-11 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" type="text" value="90 cm (Row) x 45 cm (Plant)">
+</div>
+</div>
+</section>
+<!-- SECTION 4: Pricing, MRP, Discount & Taxes -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm space-y-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">currency_rupee</span>
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">4. Transparent Pricing &amp; Mandi Benchmarking</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ensure farmer trust with clear price breakdowns and government subsidies</p>
+</div>
+</div>
+</div>
+<!-- Price Computation Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Maximum Retail Price (MRP ₹) <span class="text-error">*</span></label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant font-title-md text-title-md">₹</span>
+<input class="w-full h-12 pl-8 pr-space-md rounded-xl bg-surface-container-low text-on-surface font-title-lg text-title-lg focus:bg-surface-container-lowest focus:outline-none" id="input-mrp" type="number" value="450">
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Kisan Direct Selling Price (₹) <span class="text-error">*</span></label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-primary font-title-md text-title-md font-bold">₹</span>
+<input class="w-full h-12 pl-8 pr-space-md rounded-xl bg-surface-container-low text-primary font-headline-md text-headline-md font-bold focus:bg-surface-container-lowest focus:outline-none" id="input-sp" type="number" value="340">
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Applicable GST / Agri Surcharge</label>
+<select class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none">
+<option selected="">0% (Exempted Agricultural Seeds &amp; Certified Grains)</option>
+<option>5% (Bio-Fertilizers &amp; Organic Manures)</option>
+<option>12% (Agro-Chemicals &amp; Micro-Nutrients)</option>
+<option>18% (Sprayers &amp; Modern Irrigation Hardware)</option>
+</select>
+</div>
+</div>
+<!-- Mandi Live Price Comparison Micro-Bar -->
+<div class="p-space-md rounded-xl bg-surface-container-low space-y-space-xs">
+<div class="flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed-dim"></span>
+<span class="font-title-md text-title-md">APMC Lasalgaon Mandi Spot Comparison</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold">
+                Farmer Saves ₹110 (24.4% OFF MRP)
+              </span>
+</div>
+<div class="flex items-center gap-space-sm text-body-sm text-on-surface-variant">
+<span>Local Retail Ag-Dealer Avg: <strong class="text-on-surface">₹410</strong></span>
+<span>•</span>
+<span class="text-secondary font-medium">Your KrishiBazaar Direct Rate gives growers +₹70 advantage per pack</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden flex mt-2">
+<div class="h-full bg-primary" style="width: 75.5%"></div>
+<div class="h-full bg-tertiary-fixed-dim" style="width: 24.5%"></div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: Inventory, Units & Pack Size -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm space-y-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">5. Inventory, Lot Number &amp; Packaging Specs</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Granular stock control synchronized with FPO warehouse ledger</p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Stock Available for Immediate Sale <span class="text-error">*</span></label>
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-title-lg text-title-lg focus:bg-surface-container-lowest focus:outline-none" id="input-stock" type="number" value="850">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Unit of Measurement (UOM)</label>
+<select class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none">
+<option selected="">Packets / Pouches (Foil Sealed)</option>
+<option>Kilograms (kg)</option>
+<option>Grams (g)</option>
+<option>Litres (L)</option>
+<option>Quintals (Qtl - 100 kg)</option>
+<option>Bulk Sacks / Bags</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Pack Net Weight / Capacity</label>
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" id="input-pack" type="text" value="10g Foil Sealed Pouch">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Minimum Order Quantity (MOQ)</label>
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" min="1" type="number" value="1">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Govt Batch / Seed Lot Identifier <span class="text-error">*</span></label>
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-mono font-medium text-body-md focus:bg-surface-container-lowest focus:outline-none" type="text" value="LOT-2024-ND-9082">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Warehouse Bin / Bay Code</label>
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" type="text" value="NSK-WH2-SEC-C04">
+</div>
+</div>
+</section>
+<!-- SECTION 6: Delivery & Logistics Information -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm space-y-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">6. Rural Delivery Channels &amp; Fulfillment SLA</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Village drop points, farm-gate courier pickup, and temperature constraints</p>
+</div>
+</div>
+<div class="space-y-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-space-xs">Enabled Rural Dispatch Options</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<input checked="" class="mt-1 h-4 w-4 rounded accent-primary" type="checkbox">
+<div>
+<span class="font-title-md text-title-md text-on-surface block">Krishi Village Hub</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Nashik cluster network delivery points</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<input checked="" class="mt-1 h-4 w-4 rounded accent-primary" type="checkbox">
+<div>
+<span class="font-title-md text-title-md text-on-surface block">Farm-Gate Dispatch</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct doorstep courier delivery</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<input class="mt-1 h-4 w-4 rounded accent-primary" type="checkbox">
+<div>
+<span class="font-title-md text-title-md text-on-surface block">FPO Self-Pickup</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Farmer collects directly at warehouse</span>
+</div>
+</label>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Order Dispatch SLA</label>
+<select class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none">
+<option selected="">Within 24 Hours (Guaranteed)</option>
+<option>Same-Day Dispatch (Cut-off 2 PM)</option>
+<option>2 - 3 Business Days</option>
+<option>On-Demand Pre-Booking</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Shipping Weight (kg per pack)</label>
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" type="text" value="0.05 kg">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Cold Chain Requirement</label>
+<div class="flex items-center h-12 px-space-md rounded-xl bg-surface-container-low justify-between">
+<span class="font-body-md text-body-md text-on-surface">Ambient Storage (Normal)</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">thermostat</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Live Mobile Preview & Compliance Checklist (4 Columns Sticky) -->
+<div class="lg:col-span-4 space-y-space-lg lg:sticky lg:top-20">
+<!-- Live Buyer Card Simulation Preview -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span class="font-label-md text-label-md uppercase tracking-wider font-bold">Buyer View Preview</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-space-xs py-0.5 rounded text-on-surface-variant">Live Sync</span>
+</div>
+<!-- Product Card Mockup -->
+<div class="rounded-2xl bg-surface-container-low p-space-md space-y-space-sm shadow-sm transition-all">
+<div class="relative rounded-xl overflow-hidden bg-surface-container-lowest aspect-[4/3]">
+<img class="w-full h-full object-cover" data-alt="High resolution commercial packet view of Namdhari Hybrid Tomato Seeds NS-501 showing certified seed batch tags and high yield visuals with natural farm background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG6_1o-j_5HrHXY1WU0Raizs0CeWXq3cCBBmapRzLrl1gGIqIAB_n3Gty7X9aT_St2dSt5dQN-UoXIK64RlWWRoCzzc14MSBiHGgw68wfutx-ewSvCMApICNhSGsYZl6wfK71LxuFs3POAs56E_o75SCr1UHlyKuS39JFrqhIjnig2hX82PRpRdQ_Ydpi_mcSSaD8lGR9UtOonVv5sMlLhJY9Wr9nPACLoCRSMuw">
+<!-- Badges Stack -->
+<div class="absolute top-2 left-2 flex flex-col gap-1 items-start">
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold shadow-sm">
+                  24% OFF
+                </span>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center gap-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px]">verified</span> ICAR Purity
+                </span>
+</div>
+<div class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-surface/90 text-on-surface font-label-sm text-label-sm font-medium shadow-sm">
+                In Stock: <span class="font-bold text-primary" id="preview-stock">850 pkts</span>
+</div>
+</div>
+<!-- Card Content -->
+<div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm mb-1">
+<span>Namdhari Seeds</span>
+<span>•</span>
+<span class="text-secondary font-medium">Tomato (NS-501)</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface line-clamp-2 leading-snug" id="preview-title">
+                Namdhari Hybrid Tomato Seeds NS-501 (High Germination)
+              </h3>
+</div>
+<!-- Price Cluster -->
+<div class="flex items-baseline gap-space-sm pt-1">
+<span class="font-price-card text-price-card text-primary font-bold" id="preview-sp">₹340</span>
+<span class="font-body-md text-body-md text-outline line-through" id="preview-mrp">₹450</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">₹110 Saved</span>
+</div>
+<div class="text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">local_shipping</span>
+<span>Express Dispatch available in Nashik &amp; Pune</span>
+</div>
+<button class="w-full h-10 rounded-xl bg-primary text-on-primary font-title-md text-title-md flex items-center justify-center gap-2 hover:bg-primary-container shadow-sm mt-space-xs">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+              Add to Kisan Cart
+            </button>
+</div>
+</div>
+<!-- Compliance & Regulatory Checklist -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<h4 class="font-title-md text-title-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">gavel</span>
+              ICAR &amp; AgriStack Verification
+            </h4>
+<span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-bold">95% Ready</span>
+</div>
+<div class="space-y-space-sm font-body-sm text-body-sm">
+<div class="flex items-start gap-space-sm p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<div>
+<span class="font-medium text-on-surface">Valid Maharashtra Seed License Linked</span>
+<p class="text-on-surface-variant font-label-sm text-label-sm">MH-AG-SEED-8942 (Expires 2026)</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<div>
+<span class="font-medium text-on-surface">Mandatory Seed Lot Number Assigned</span>
+<p class="text-on-surface-variant font-label-sm text-label-sm">LOT-2024-ND-9082</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<div>
+<span class="font-medium text-on-surface">Germination Guarantee ≥ 85%</span>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Tested at 92% vigor rate</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-xs rounded-lg bg-tertiary-fixed/30 rounded-xl">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5">info</span>
+<div>
+<span class="font-medium text-on-surface">GST Exemption Notification #12/2017</span>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Agri seed inputs exempt under Indian GST laws</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Mandi Price Advisory Widget -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low shadow-sm space-y-space-xs">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">query_stats</span>
+<span class="font-title-md text-title-md font-bold">Mandi Pricing Advisory</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Setting direct prices <strong>10% - 15% below traditional retail dealers</strong> increases buyer transaction volume across FPO members by up to <strong>42%</strong>.
+          </p>
+<div class="pt-2 flex items-center justify-between text-label-sm text-label-sm text-on-surface font-semibold">
+<span>Lasalgaon APMC Benchmark</span>
+<span class="text-primary font-bold">₹410/pack</span>
+</div>
+</div>
+<!-- Final Action Bar for Sidebar -->
+<div class="p-space-md bg-surface-container-lowest rounded-2xl shadow-sm flex flex-col gap-space-sm">
+<button class="w-full h-12 rounded-xl bg-primary text-on-primary font-title-md text-title-md shadow-md hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+            Publish to KrishiBazaar
+          </button>
+<div class="flex items-center gap-space-sm">
+<button class="flex-1 h-10 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors">
+              Save Draft
+            </button>
+<button class="flex-1 h-10 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors">
+              Preview Mode
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple reactive bindings for live mobile card preview
+  const inputTitle = document.getElementById('input-title');
+  const previewTitle = document.getElementById('preview-title');
+  const inputSP = document.getElementById('input-sp');
+  const previewSP = document.getElementById('preview-sp');
+  const inputMRP = document.getElementById('input-mrp');
+  const previewMRP = document.getElementById('preview-mrp');
+  const inputStock = document.getElementById('input-stock');
+  const previewStock = document.getElementById('preview-stock');
+
+  if (inputTitle && previewTitle) {
+    inputTitle.addEventListener('input', (e) => {
+      previewTitle.textContent = e.target.value || 'Untitled Agricultural Product';
+    });
+  }
+
+  if (inputSP && previewSP) {
+    inputSP.addEventListener('input', (e) => {
+      previewSP.textContent = '₹' + (e.target.value || '0');
+    });
+  }
+
+  if (inputMRP && previewMRP) {
+    inputMRP.addEventListener('input', (e) => {
+      previewMRP.textContent = '₹' + (e.target.value || '0');
+    });
+  }
+
+  if (inputStock && previewStock) {
+    inputStock.addEventListener('input', (e) => {
+      previewStock.textContent = (e.target.value || '0') + ' pkts';
+    });
+  }
+</script></main></div></body></html>

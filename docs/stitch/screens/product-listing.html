@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-secondary": "#ffffff", "tertiary-fixed-dim": "#ffb77d", "primary-fixed-dim": "#79db8d", "inverse-primary": "#79db8d", "surface-container-highest": "#dae2fd", "background": "#faf8ff", "outline-variant": "#becabc", "surface-container-high": "#e2e7ff", "tertiary-fixed": "#ffdcc3", "surface-dim": "#d2d9f4", "primary-container": "#15803d", "on-tertiary-fixed": "#2f1500", "secondary": "#006e2f", "primary-fixed": "#95f8a7", "tertiary-container": "#a95b00", "error": "#ba1a1a", "surface-bright": "#faf8ff", "inverse-on-surface": "#eef0ff", "on-tertiary-container": "#fff1e9", "surface-container-lowest": "#ffffff", "on-surface-variant": "#3f493f", "secondary-fixed-dim": "#4ae176", "on-tertiary-fixed-variant": "#6e3900", "on-secondary-container": "#007432", "on-error-container": "#93000a", "tertiary": "#854600", "on-primary-container": "#d3ffd5", "surface-container-low": "#f2f3ff", "surface-container": "#eaedff", "on-error": "#ffffff", "on-primary": "#ffffff", "error-container": "#ffdad6", "inverse-surface": "#283044", "secondary-fixed": "#6bff8f", "on-secondary-fixed": "#002109", "surface": "#faf8ff", "on-primary-fixed-variant": "#005323", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#005321", "on-background": "#131b2e", "surface-tint": "#006d30", "outline": "#6f7a6e", "surface-variant": "#dae2fd", "secondary-container": "#6bff8f", "primary": "#00652c", "on-primary-fixed": "#00210a", "on-surface": "#131b2e" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "gutter-desktop": "1.5rem", "space-2xl": "2rem", "space-xl": "1.5rem", "margin": "1rem", "space-sm": "0.5rem", "space-md": "0.75rem", "space-3xl": "3rem", "margin-desktop": "2.5rem", "margin-tablet": "1.5rem", "space-xs": "0.25rem", "space-lg": "1rem" }, fontFamily: { "price-hero": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "title-lg": ["Plus Jakarta Sans"], "price-card": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "title-md": ["Inter"], "label-sm": ["Inter"], "headline-xl-mobile": ["Plus Jakarta Sans"] }, fontSize: { "price-hero": ["28px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "800" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "title-lg": ["18px", { lineHeight: "24px", fontWeight: "600" }], "price-card": ["20px", { lineHeight: "24px", fontWeight: "700" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "700" }], "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }], "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }], "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }], "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }], "title-md": ["16px", { lineHeight: "22px", fontWeight: "600" }], "label-sm": ["10px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }], "headline-xl-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "800" }] } } } };</script><style>@layer base { html, body { margin: 0; padding: 0; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 px-gutter flex flex-col justify-center gap-space-xs"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs"><img alt="KrishiBazaar Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WEn_hgkknwIGhWhthyof0CSb9dV_g4xW1qzWIyYGlEsfms5vru15LNeIx-GakrypqGQH_Bmm8WbKsxbGlXvy6SeaZf2q8WrP1kruDMT13Y0pNJpQO5RNdUeX_PGtlwyHG1Ob_iCAM0bwcDCXh05AG8LLzPMYKNH8B9gIE1hurinCjjslOBmbXrPluGGKV4GaC0sftAjzrMuMLdA3s2vkTXz1DqmjsPqmltZ4on_I8"><span class="font-title-lg text-title-lg text-primary tracking-tight font-bold">KrishiBazaar</span><div class="flex items-center gap-0.5 ml-space-xs px-space-xs py-0.5 rounded-full bg-surface-container-low"><span class="material-symbols-outlined text-[15px] text-tertiary-container">location_on</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Nashik, 422003</span><span class="material-symbols-outlined text-[15px] text-on-surface-variant">arrow_drop_down</span></div></div><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center relative rounded-full text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[24px]">notifications</span><span class="absolute top-2 right-2 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-[9px] flex items-center justify-center font-bold">2</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ml-space-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8e6kbYZEkkfzv3r7xC7w-p3v-K5qm4xzWDNUykyhWBJKXxDBjRAnnr4Wv3vTiavMjmDoC4UqTk6vnqot-dre-6RDjPUZ7L4aJ4ZzYI63ekd-bMzKVo0hYUMOot5NUCiPn9y-KrDeRSxDL93CWsc-VML1leJkTya0w_KnG_TTzWJxH4Ie9kGi9HTbc0BPv1J9k80lVIQg9bTJ7R39_9GhfAfhnht7xj72Q-UulbA"></div></div><div class="flex items-center gap-space-xs"><div class="flex-1 flex items-center h-10 px-space-sm rounded-lg bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><span class="material-symbols-outlined text-outline text-[20px] mr-space-xs">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search seeds, fertilizers, pesticides..." type="text"><button class="w-8 h-8 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[18px]">mic</span></button><button class="w-8 h-8 flex items-center justify-center text-tertiary"><span class="material-symbols-outlined text-[18px]">photo_camera</span></button></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-28 pb-20 bg-surface"><div class="flex flex-col w-full pb-10">
+<!-- 1. Breadcrumbs & Header Section -->
+<section class="px-gutter pt-space-xs pb-space-sm bg-surface-container-low">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm overflow-x-auto whitespace-nowrap py-1">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[12px] text-outline">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Agri Inputs</a>
+<span class="material-symbols-outlined text-[12px] text-outline">chevron_right</span>
+<span class="text-primary font-semibold">Seeds &amp; Nutrition</span>
+</div>
+<div class="flex items-baseline justify-between mt-space-xs">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight font-bold">Crop Seeds &amp; Nutrition</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">ICAR verified certified lots directly delivered to farmgate</p>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold shadow-sm whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        148 Products
+      </span>
+</div>
+<!-- Quick Sub-Category Pills Horizontal Scroller -->
+<div class="flex items-center gap-2 overflow-x-auto pt-space-sm pb-1 no-scrollbar -mx-gutter px-gutter">
+<button class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-semibold whitespace-nowrap shadow-sm">All Seeds</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md whitespace-nowrap shadow-sm hover:bg-surface-container">Hybrid Veggies</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md whitespace-nowrap shadow-sm hover:bg-surface-container">Field Crops</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md whitespace-nowrap shadow-sm hover:bg-surface-container">Bio-Fertilizers</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md whitespace-nowrap shadow-sm hover:bg-surface-container">Micronutrients</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md whitespace-nowrap shadow-sm hover:bg-surface-container">Drip Soluble</button>
+</div>
+</section>
+<!-- 2. Sticky Filter & Sort Bar -->
+<section class="sticky top-28 z-40 bg-surface/95 backdrop-blur-md py-2.5 px-gutter shadow-sm">
+<div class="flex items-center justify-between gap-2">
+<!-- Filter Button Trigger -->
+<button class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface shadow-sm font-label-md text-label-md font-semibold active:scale-95 transition-all" id="filterToggleBtn">
+<span class="material-symbols-outlined text-[18px] text-primary">tune</span>
+<span class="">Filters</span>
+<span class="w-5 h-5 rounded-full bg-primary-container text-on-primary font-label-sm text-[10px] flex items-center justify-center font-bold">4</span>
+</button>
+<!-- Sort selector custom pill -->
+<div class="flex items-center gap-1 bg-surface-container-lowest rounded-lg p-0.5 shadow-sm overflow-x-auto max-w-[240px]">
+<span class="material-symbols-outlined text-[16px] text-outline ml-1.5">swap_vert</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface py-1.5 pr-2 pl-0.5 focus:outline-none font-semibold cursor-pointer">
+<option selected="">Popularity</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Top Rated (4★+)</option>
+<option>Fastest Delivery</option>
+</select>
+</div>
+<!-- Mandi verified pill badge -->
+<div class="hidden sm:flex items-center gap-1 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="">Mandi Rates</span>
+</div>
+</div>
+<!-- Active Filter Chips Tag Row -->
+<div class="flex items-center gap-1.5 overflow-x-auto pt-2 no-scrollbar -mx-gutter px-gutter">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm whitespace-nowrap">
+<span class="">In Stock</span>
+<button class="hover:text-error"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm whitespace-nowrap">
+<span class="">Organic Certified</span>
+<button class="hover:text-error"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm whitespace-nowrap">
+<span class="">⭐ 4+ Rating</span>
+<button class="hover:text-error"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm whitespace-nowrap">
+<span class="">Govt Subsidy</span>
+<button class="hover:text-error"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<button class="font-label-sm text-label-sm text-tertiary font-bold underline whitespace-nowrap ml-1">Reset</button>
+</div>
+</section>
+<!-- 3. Collapsible / Mobile Filter Drawer Panel -->
+<aside class="hidden px-gutter py-space-md bg-surface-container-lowest shadow-md transition-all" id="filterDrawer">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">filter_list</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Detailed Agri Filters</h3>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-error" id="filterCloseBtn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Filter Category Groups in Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-2">
+<!-- Group 1: Crop Type -->
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-label-md text-label-md font-bold text-on-surface block mb-2">Crop Specialization</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2.5 py-1 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold">Cotton (BT)</button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm">Tomato</button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm">Chilli (Teja)</button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm">Onion</button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm">Soybean</button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm">Paddy / Rice</button>
+</div>
+</div>
+<!-- Group 2: Leading Agri Brands -->
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-label-md text-label-md font-bold text-on-surface block mb-2">Verified Manufacturer / Brand</span>
+<div class="grid grid-cols-2 gap-2 text-on-surface font-body-sm text-body-sm">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="accent-primary w-4 h-4 rounded" type="checkbox">
+<span class="">Syngenta</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="accent-primary w-4 h-4 rounded" type="checkbox">
+<span class="">Bayer Crop</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="accent-primary w-4 h-4 rounded" type="checkbox">
+<span class="">IFFCO Bio</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="accent-primary w-4 h-4 rounded" type="checkbox">
+<span class="">Namdhari Seeds</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="accent-primary w-4 h-4 rounded" type="checkbox">
+<span class="">Mahyco</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="accent-primary w-4 h-4 rounded" type="checkbox">
+<span class="">UPL Limited</span>
+</label>
+</div>
+</div>
+<!-- Group 3: Price Range & Subsidy -->
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-md text-label-md font-bold text-on-surface">Budget Per Acre</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">₹300 - ₹4,500</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2 py-1 rounded-md bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold">Under ₹500</button>
+<button class="px-2 py-1 rounded-md bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold">₹500 - ₹2,000</button>
+<button class="px-2 py-1 rounded-md bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold">₹2,000 - ₹5,000</button>
+<button class="px-2 py-1 rounded-md bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold">Bulk 50kg+</button>
+</div>
+</div>
+<!-- Group 4: Certifications & Delivery Mode -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col justify-between">
+<div>
+<span class="font-label-md text-label-md font-bold text-on-surface block mb-2">Logistics &amp; Quality Mark</span>
+<div class="flex flex-col gap-1.5 font-body-sm text-body-sm">
+<label class="flex items-center gap-2">
+<input checked="" class="accent-primary w-4 h-4 rounded" type="checkbox">
+<span class="">Direct Village Gate Delivery (Express 48h)</span>
+</label>
+<label class="flex items-center gap-2">
+<input class="accent-primary w-4 h-4 rounded" type="checkbox">
+<span class="">100% Bio-Certified Organic (NPOP)</span>
+</label>
+</div>
+</div>
+<button class="mt-3 w-full py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-semibold active:scale-95 transition-transform shadow-sm">
+          Apply Filters (148 Results)
+        </button>
+</div>
+</div>
+</aside>
+<!-- 4. Product Listing Grid (2-Column Mobile Ergonomic Grid) -->
+<section class="px-gutter pt-space-md">
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Product Card 1 -->
+<div class="group relative flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-space-sm shadow-sm hover:shadow-md transition-shadow">
+<div>
+<!-- Visual Media Container -->
+<div class="relative w-full aspect-square rounded-xl bg-surface-container-low overflow-hidden flex items-center justify-center mb-space-xs">
+<img class="w-full h-full object-cover" data-alt="Clear packaging pouch of Namdhari NS-501 tomato seeds resting on rich fertile dark soil with fresh ripe bright red tomatoes beside it, golden sunrise agrarian lighting, high clarity catalog shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOsnhJ45DwfYUKIhjIh4Asqt43OUlDtO2F6uT_Jjc_hALw8mmkKaAmGwSO-wCJePz88yqpgiG5u8LA2VanvOescnOXzBnyJi-f7p9P2pq9frm3mcgGzwx-eooYAyUQ_9qMPhhly7av5VGl0Jm9URj4qjc44p8LaIYvuRf3Nr9yV-x6lF60Kj3bxD_-LZwfudvi-jpISpF3HkL5iHnVigWk5nKBy71PK8FvjzbB0w">
+<!-- Badges Zone -->
+<div class="absolute top-2 left-2 flex flex-col gap-1 z-10">
+<span class="px-1.5 py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold shadow-sm">Govt Certified</span>
+<span class="px-1.5 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] font-bold">24% OFF</span>
+</div>
+<!-- Wishlist Heart Toggle -->
+<button class="wishlist-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<!-- Product Meta -->
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm font-bold tracking-wider uppercase mb-0.5">
+<span class="">NAMDHARI SEEDS</span>
+<span class="flex items-center text-tertiary font-bold text-[11px]"><span class="material-symbols-outlined text-[12px] text-tertiary mr-0.5" style="font-variation-settings: 'FILL' 1;">star</span>4.8</span>
+</div>
+<h2 class="font-title-md text-[13px] leading-tight text-on-surface font-bold line-clamp-2 min-w-0">
+            Namdhari Hybrid Tomato Seeds NS-501
+          </h2>
+<p class="font-body-sm text-[11px] leading-4 text-on-surface-variant line-clamp-2 mt-1 min-w-0">
+            Leaf curl virus resistant; early high fruit set in 70 days.
+          </p>
+<!-- Pack Size Selector Chips -->
+<div class="flex items-center gap-1 mt-2 overflow-x-auto no-scrollbar">
+<button class="px-2 py-0.5 rounded-md bg-primary-container text-on-primary font-label-sm text-[10px] font-bold whitespace-nowrap">10 g Pouch</button>
+<button class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-[10px] whitespace-nowrap">50 g Pack</button>
+</div>
+</div>
+<!-- Pricing & Dual CTAs -->
+<div class="mt-3 pt-2">
+<div class="flex items-baseline gap-1.5">
+<span class="font-price-card text-price-card text-primary font-bold">₹340</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹450</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5 mt-2">
+<!-- Add to Cart (Quick Icon Button) -->
+<button class="col-span-2 h-9 rounded-lg bg-surface-container text-primary flex items-center justify-center hover:bg-surface-container-high active:scale-95 transition-all" title="Add to Cart">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+<!-- Buy Now CTA -->
+<button class="col-span-3 h-9 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center justify-center shadow-sm active:scale-95 transition-all">
+              Buy Now
+            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-space-sm shadow-sm hover:shadow-md transition-shadow">
+<div>
+<!-- Visual Media Container -->
+<div class="relative w-full aspect-square rounded-xl bg-surface-container-low overflow-hidden flex items-center justify-center mb-space-xs">
+<img class="w-full h-full object-cover" data-alt="A clean white 1kg bag of IFFCO 19 19 19 water soluble crop fertilizer placed inside a bright green drip-irrigated sugarcane field under vivid natural sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAu0yUAIslNhRtcD5FzM1CrYWiDHGSAlAcgmEJsXc9_65hthjjSRFwbYErgldJeB2ToXoZgrq_vJNo03CONzfLp6tBlK990_fYj3sOfP5hBGEaXzHIc0ZgfQFDz-iQfNfw3LitSGdIEDKLDJ3oaDxrT-wzr_GG-5WN4acWv_9E7Xg_Vqh2Mvqll_V0VcroKrhlfICa0pw_CsEsQ52TsvpNEHj8As8lt-bmmxv53w">
+<!-- Badges Zone -->
+<div class="absolute top-2 left-2 flex flex-col gap-1 z-10">
+<span class="px-1.5 py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold shadow-sm">Bestseller</span>
+<span class="px-1.5 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] font-bold">18% OFF</span>
+</div>
+<!-- Wishlist Heart Toggle -->
+<button class="wishlist-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<!-- Product Meta -->
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm font-bold tracking-wider uppercase mb-0.5">
+<span class="">IFFCO AGRI</span>
+<span class="flex items-center text-tertiary font-bold text-[11px]"><span class="material-symbols-outlined text-[12px] text-tertiary mr-0.5" style="font-variation-settings: 'FILL' 1;">star</span>4.9</span>
+</div>
+<h2 class="font-title-md text-[13px] leading-tight text-on-surface font-bold line-clamp-2 min-w-0">
+            IFFCO NPK 19:19:19 100% Water Soluble
+          </h2>
+<p class="font-body-sm text-[11px] leading-4 text-on-surface-variant line-clamp-2 mt-1 min-w-0">
+            Instant vegetative boost for foliar spray &amp; drip fertigation systems.
+          </p>
+<!-- Pack Size Selector Chips -->
+<div class="flex items-center gap-1 mt-2 overflow-x-auto no-scrollbar">
+<button class="px-2 py-0.5 rounded-md bg-primary-container text-on-primary font-label-sm text-[10px] font-bold whitespace-nowrap">1 kg Pouch</button>
+<button class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-[10px] whitespace-nowrap">25 kg Bag</button>
+</div>
+</div>
+<!-- Pricing & Dual CTAs -->
+<div class="mt-3 pt-2">
+<div class="flex items-baseline gap-1.5">
+<span class="font-price-card text-price-card text-primary font-bold">₹165</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹200</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5 mt-2">
+<button class="col-span-2 h-9 rounded-lg bg-surface-container text-primary flex items-center justify-center hover:bg-surface-container-high active:scale-95 transition-all" title="Add to Cart">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+<button class="col-span-3 h-9 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center justify-center shadow-sm active:scale-95 transition-all">
+              Buy Now
+            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-space-sm shadow-sm hover:shadow-md transition-shadow">
+<div>
+<div class="relative w-full aspect-square rounded-xl bg-surface-container-low overflow-hidden flex items-center justify-center mb-space-xs">
+<img class="w-full h-full object-cover" data-alt="Mahyco Bollgard II BG-2 cotton seed packets arranged neatly on a wooden harvest crate beside fresh fluffy cotton bolls in an Indian farmstead." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFkKBJBnhK1O0h6db9-zTmO7IyZDvPhKHsme_nVXSY6QpKcng6OkMSFc49mc5T7C2Xc5N_H4HbaovXIrGZcnpMe-LoGINMg41TmsesVa6Ojv2VyziDt7uQFBnI-9Hz_1ReM_WoC2kGuIdvV6ldqpPapW-CqH8jUO-Xypi3_EGpySpfzaXqlogSIxaEKfYgQOdCAyw8N36T8XlGU1okevU_0jI8BHGWUZVV-GRRwQ">
+<div class="absolute top-2 left-2 flex flex-col gap-1 z-10">
+<span class="px-1.5 py-0.5 rounded-md bg-primary-container text-on-primary font-label-sm text-[10px] font-bold shadow-sm">Non-GMO Ref</span>
+<span class="px-1.5 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] font-bold">12% OFF</span>
+</div>
+<button class="wishlist-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm font-bold tracking-wider uppercase mb-0.5">
+<span class="">MAHYCO</span>
+<span class="flex items-center text-tertiary font-bold text-[11px]"><span class="material-symbols-outlined text-[12px] text-tertiary mr-0.5" style="font-variation-settings: 'FILL' 1;">star</span>4.7</span>
+</div>
+<h2 class="font-title-md text-[13px] leading-tight text-on-surface font-bold line-clamp-2 min-w-0">
+            Mahyco Cotton Bollgard II BG-II Hybrid
+          </h2>
+<p class="font-body-sm text-[11px] leading-4 text-on-surface-variant line-clamp-2 mt-1 min-w-0">
+            Dual protection against American &amp; spotted bollworms; heavy boll retention.
+          </p>
+<div class="flex items-center gap-1 mt-2 overflow-x-auto no-scrollbar">
+<button class="px-2 py-0.5 rounded-md bg-primary-container text-on-primary font-label-sm text-[10px] font-bold whitespace-nowrap">450 g + Refuge</button>
+</div>
+</div>
+<div class="mt-3 pt-2">
+<div class="flex items-baseline gap-1.5">
+<span class="font-price-card text-price-card text-primary font-bold">₹864</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹980</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5 mt-2">
+<button class="col-span-2 h-9 rounded-lg bg-surface-container text-primary flex items-center justify-center hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+<button class="col-span-3 h-9 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center justify-center shadow-sm active:scale-95 transition-all">
+              Buy Now
+            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group relative flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-space-sm shadow-sm hover:shadow-md transition-shadow">
+<div>
+<div class="relative w-full aspect-square rounded-xl bg-surface-container-low overflow-hidden flex items-center justify-center mb-space-xs">
+<img class="w-full h-full object-cover" data-alt="Syngenta Ridomil Gold systemic fungicide package standing firmly on a field sprayer tank with lush green grape vineyard vines in background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMAeDvZogDU9JRiV8JfPfeCJVDM8rqdlNoW6jcmY_ucF25dgRKIjIwTZJoGcI68oEmNKlfI2djW83bK8qwyRGAV7N9mPKeYqPImn3uYjxLDmFlvWt4Xl_KhS2NQKy2yDBDq6aXEu8l8va5bUX9rzVm8B9WvKZsRLspf3rfNH8Spdlky9QOdNu_WmCmcgSxAgG5gDFfbB6HZ8qzI1mlIShdBuirAP-5GxVJJ-_NgQ">
+<div class="absolute top-2 left-2 flex flex-col gap-1 z-10">
+<span class="px-1.5 py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold shadow-sm">Top Cure</span>
+<span class="px-1.5 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] font-bold">15% OFF</span>
+</div>
+<button class="wishlist-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm font-bold tracking-wider uppercase mb-0.5">
+<span class="">SYNGENTA</span>
+<span class="flex items-center text-tertiary font-bold text-[11px]"><span class="material-symbols-outlined text-[12px] text-tertiary mr-0.5" style="font-variation-settings: 'FILL' 1;">star</span>4.9</span>
+</div>
+<h2 class="font-title-md text-[13px] leading-tight text-on-surface font-bold line-clamp-2 min-w-0">
+            Syngenta Ridomil Gold MZ Systemic Fungicide
+          </h2>
+<p class="font-body-sm text-[11px] leading-4 text-on-surface-variant line-clamp-2 mt-1 min-w-0">
+            Broad spectrum cure for downy mildew &amp; late blight in vegetables.
+          </p>
+<div class="flex items-center gap-1 mt-2 overflow-x-auto no-scrollbar">
+<button class="px-2 py-0.5 rounded-md bg-primary-container text-on-primary font-label-sm text-[10px] font-bold whitespace-nowrap">100 g</button>
+<button class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-[10px] whitespace-nowrap">500 g</button>
+</div>
+</div>
+<div class="mt-3 pt-2">
+<div class="flex items-baseline gap-1.5">
+<span class="font-price-card text-price-card text-primary font-bold">₹285</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹335</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5 mt-2">
+<button class="col-span-2 h-9 rounded-lg bg-surface-container text-primary flex items-center justify-center hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+<button class="col-span-3 h-9 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center justify-center shadow-sm active:scale-95 transition-all">
+              Buy Now
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. Mandi Price Guarantee & Agronomist Advisory Widget (Split Bento Inset) -->
+<div class="mt-space-md mb-space-sm p-space-md rounded-2xl bg-gradient-to-r from-secondary/10 via-surface-container-low to-secondary-container/20 shadow-sm relative overflow-hidden">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">price_check</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold">APMC Mandi Rate Guarantee</span>
+<span class="px-1.5 py-0.2 rounded bg-primary text-on-primary font-label-sm text-[9px] uppercase font-bold">Live Rate</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+            All prices are matched daily with Lasalgaon &amp; Nashik APMC agro-centers. Save up to 18% with verified direct manufacturer dispatch and free replacement warranty.
+          </p>
+<div class="flex items-center gap-3 mt-2 font-label-md text-label-md font-semibold text-primary">
+<a class="inline-flex items-center gap-1 hover:underline" href="#">
+<span class="">View Mandi Comparative Chart</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Continued 2-Column Product Grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Product Card 5 -->
+<div class="group relative flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-space-sm shadow-sm hover:shadow-md transition-shadow">
+<div>
+<div class="relative w-full aspect-square rounded-xl bg-surface-container-low overflow-hidden flex items-center justify-center mb-space-xs">
+<img class="w-full h-full object-cover" data-alt="UPL Saaf Contact and Systemic Fungicide canister positioned next to clean healthy green tomato foliage and moist agricultural soil, bright crisp studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHdFQDrN3YGtyyjDpnqaao7RdPOWFslx3ufibaWsZFlG7jQLCrhDADZ7DKe8nJwRehtJVBx-sANkJwTCQWEJi4OFmDPtN0FceQD7XYi60v5B32wu_03c5Wg3D8ndQHq86dtC2u4pVfPbNjXTUNHytSfkrVwOST3QvCXJYEA0kavkZV3nS0kAM-DA1k7E-SV91eY0Sg_AnP6C7_HAozk0lH4XnvuwbNDW7PGo_KAA">
+<div class="absolute top-2 left-2 flex flex-col gap-1 z-10">
+<span class="px-1.5 py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold shadow-sm">Dual Action</span>
+<span class="px-1.5 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] font-bold">20% OFF</span>
+</div>
+<button class="wishlist-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm font-bold tracking-wider uppercase mb-0.5">
+<span class="">UPL LIMITED</span>
+<span class="flex items-center text-tertiary font-bold text-[11px]"><span class="material-symbols-outlined text-[12px] text-tertiary mr-0.5" style="font-variation-settings: 'FILL' 1;">star</span>4.8</span>
+</div>
+<h2 class="font-title-md text-[13px] leading-tight text-on-surface font-bold line-clamp-2 min-w-0">
+            UPL Saaf Carbendazim + Mancozeb Combo
+          </h2>
+<p class="font-body-sm text-[11px] leading-4 text-on-surface-variant line-clamp-2 mt-1 min-w-0">
+            Trusted seed dressing &amp; foliar treatment against anthracnose and blast.
+          </p>
+<div class="flex items-center gap-1 mt-2 overflow-x-auto no-scrollbar">
+<button class="px-2 py-0.5 rounded-md bg-primary-container text-on-primary font-label-sm text-[10px] font-bold whitespace-nowrap">250 g</button>
+<button class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-[10px] whitespace-nowrap">1 kg Box</button>
+</div>
+</div>
+<div class="mt-3 pt-2">
+<div class="flex items-baseline gap-1.5">
+<span class="font-price-card text-price-card text-primary font-bold">₹225</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹280</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5 mt-2">
+<button class="col-span-2 h-9 rounded-lg bg-surface-container text-primary flex items-center justify-center hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+<button class="col-span-3 h-9 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center justify-center shadow-sm active:scale-95 transition-all">
+              Buy Now
+            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group relative flex flex-col justify-between bg-surface-container-lowest rounded-2xl p-space-sm shadow-sm hover:shadow-md transition-shadow">
+<div>
+<div class="relative w-full aspect-square rounded-xl bg-surface-container-low overflow-hidden flex items-center justify-center mb-space-xs">
+<img class="w-full h-full object-cover" data-alt="Bottled Multiplex Flower Booster organic bio stimulant on a rustic farm bench surrounded by blooming jasmine and marigold flowers under morning sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV8FtuCjyUe1sPE9_odSfnwRzijGPM3DS3RlyzrUhCiBJPW-Xp83-A8T1JmHJiqDOW2BrHQByOQ7scQZ_EG75bjYRutQogeGsX-fSRhHtfcinYLhRxB5XKNIszPGW66PpklkDSxLWBJQK8iYzhMXCdNNfY6JBeIsWWQgPbKNMFbCQvF_1-h7IvRDoEqI4LZ2XoL1_W-QyzMVkPGCdxAUHWxFUagPYP-sOLEb7rzg">
+<div class="absolute top-2 left-2 flex flex-col gap-1 z-10">
+<span class="px-1.5 py-0.5 rounded-md bg-primary-container text-on-primary font-label-sm text-[10px] font-bold shadow-sm">100% Bio</span>
+<span class="px-1.5 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] font-bold">30% OFF</span>
+</div>
+<button class="wishlist-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm font-bold tracking-wider uppercase mb-0.5">
+<span class="">MULTIPLEX</span>
+<span class="flex items-center text-tertiary font-bold text-[11px]"><span class="material-symbols-outlined text-[12px] text-tertiary mr-0.5" style="font-variation-settings: 'FILL' 1;">star</span>4.9</span>
+</div>
+<h2 class="font-title-md text-[13px] leading-tight text-on-surface font-bold line-clamp-2 min-w-0">
+            Multiplex Flower Booster Bio-Organic Stimulant
+          </h2>
+<p class="font-body-sm text-[11px] leading-4 text-on-surface-variant line-clamp-2 mt-1 min-w-0">
+            Prevents flower shedding; spikes female flowering by 35% in chillies.
+          </p>
+<div class="flex items-center gap-1 mt-2 overflow-x-auto no-scrollbar">
+<button class="px-2 py-0.5 rounded-md bg-primary-container text-on-primary font-label-sm text-[10px] font-bold whitespace-nowrap">250 ml</button>
+<button class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-[10px] whitespace-nowrap">500 ml</button>
+</div>
+</div>
+<div class="mt-3 pt-2">
+<div class="flex items-baseline gap-1.5">
+<span class="font-price-card text-price-card text-primary font-bold">₹290</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹415</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5 mt-2">
+<button class="col-span-2 h-9 rounded-lg bg-surface-container text-primary flex items-center justify-center hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+<button class="col-span-3 h-9 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center justify-center shadow-sm active:scale-95 transition-all">
+              Buy Now
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Pagination & Load More Section -->
+<section class="px-gutter pt-space-xl flex flex-col items-center">
+<!-- Progress Indicator -->
+<div class="w-full max-w-xs flex flex-col items-center gap-1 mb-space-sm">
+<div class="flex justify-between w-full font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Showing 6 of 148 products</span>
+<span class="font-bold text-primary">4% Loaded</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-300" style="width: 12%;"></div>
+</div>
+</div>
+<!-- Big Load More CTA -->
+<button class="w-full max-w-xs py-3 px-space-md rounded-xl bg-surface-container-lowest text-primary font-label-md text-label-md font-bold shadow-sm hover:shadow-md active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">expand_circle_down</span>
+<span class="">Load Next 10 Products</span>
+</button>
+<!-- Page navigation numbers -->
+<div class="flex items-center gap-1 mt-space-md">
+<button class="w-9 h-9 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold flex items-center justify-center shadow-sm">1</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center shadow-sm">2</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center shadow-sm">3</button>
+<span class="px-1 text-outline font-bold">...</span>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center shadow-sm">25</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<!-- Quick Agri Hotline Help -->
+<div class="flex items-center gap-2 mt-space-xl p-space-sm rounded-xl bg-surface-container-low text-on-surface-variant max-w-sm w-full">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+</div>
+<div class="text-left font-body-sm text-[11px] leading-tight">
+<span class="font-bold text-on-surface block">Need agronomy guidance?</span>
+        Call toll-free <span class="font-semibold text-primary">1800-419-KRISHI</span> for free seed prescription.
+      </div>
+</div>
+</section>
+</div>
+<script>
+  // Simple interactive micro-state handlers
+  const filterBtn = document.getElementById('filterToggleBtn');
+  const filterClose = document.getElementById('filterCloseBtn');
+  const filterDrawer = document.getElementById('filterDrawer');
+
+  if (filterBtn && filterDrawer) {
+    filterBtn.addEventListener('click', () => {
+      filterDrawer.classList.toggle('hidden');
+    });
+  }
+
+  if (filterClose && filterDrawer) {
+    filterClose.addEventListener('click', () => {
+      filterDrawer.classList.add('hidden');
+    });
+  }
+
+  // Wishlist heart toggle delight
+  document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isFilled = icon.style.fontVariationSettings?.includes("'FILL' 1");
+      if (isFilled) {
+        icon.style.fontVariationSettings = "'FILL' 0";
+        btn.classList.remove('text-error');
+        btn.classList.add('text-outline');
+      } else {
+        icon.style.fontVariationSettings = "'FILL' 1";
+        btn.classList.add('text-error');
+        btn.classList.remove('text-outline');
+      }
+    });
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_10px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-label-sm text-label-sm">Home</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-primary font-semibold transition-colors" data-path="categories" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm">Categories</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="search" href="#"><span class="material-symbols-outlined text-[22px]">search</span><span class="font-label-sm text-label-sm">Search</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors relative" data-path="cart" href="#"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">shopping_cart</span><span class="absolute -top-1.5 -right-2.5 px-1 min-w-[15px] h-[15px] rounded-full bg-primary-container text-on-primary-container font-label-sm text-[9px] flex items-center justify-center font-bold">3</span></div><span class="font-label-sm text-label-sm">Cart</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">Profile</span></a></div></nav>
+
+</body></html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-secondary": "#ffffff", "tertiary-fixed-dim": "#ffb77d", "primary-fixed-dim": "#79db8d", "inverse-primary": "#79db8d", "surface-container-highest": "#dae2fd", "background": "#faf8ff", "outline-variant": "#becabc", "surface-container-high": "#e2e7ff", "tertiary-fixed": "#ffdcc3", "surface-dim": "#d2d9f4", "primary-container": "#15803d", "on-tertiary-fixed": "#2f1500", "secondary": "#006e2f", "primary-fixed": "#95f8a7", "tertiary-container": "#a95b00", "error": "#ba1a1a", "surface-bright": "#faf8ff", "inverse-on-surface": "#eef0ff", "on-tertiary-container": "#fff1e9", "surface-container-lowest": "#ffffff", "on-surface-variant": "#3f493f", "secondary-fixed-dim": "#4ae176", "on-tertiary-fixed-variant": "#6e3900", "on-secondary-container": "#007432", "on-error-container": "#93000a", "tertiary": "#854600", "on-primary-container": "#d3ffd5", "surface-container-low": "#f2f3ff", "surface-container": "#eaedff", "on-error": "#ffffff", "on-primary": "#ffffff", "error-container": "#ffdad6", "inverse-surface": "#283044", "secondary-fixed": "#6bff8f", "on-secondary-fixed": "#002109", "surface": "#faf8ff", "on-primary-fixed-variant": "#005323", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#005321", "on-background": "#131b2e", "surface-tint": "#006d30", "outline": "#6f7a6e", "surface-variant": "#dae2fd", "secondary-container": "#6bff8f", "primary": "#00652c", "on-primary-fixed": "#00210a", "on-surface": "#131b2e" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "gutter-desktop": "1.5rem", "space-2xl": "2rem", "space-xl": "1.5rem", "margin": "1rem", "space-sm": "0.5rem", "space-md": "0.75rem", "space-3xl": "3rem", "margin-desktop": "2.5rem", "margin-tablet": "1.5rem", "space-xs": "0.25rem", "space-lg": "1rem" }, fontFamily: { "price-hero": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "title-lg": ["Plus Jakarta Sans"], "price-card": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "title-md": ["Inter"], "label-sm": ["Inter"], "headline-xl-mobile": ["Plus Jakarta Sans"] }, fontSize: { "price-hero": ["28px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "800" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "title-lg": ["18px", { lineHeight: "24px", fontWeight: "600" }], "price-card": ["20px", { lineHeight: "24px", fontWeight: "700" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "700" }], "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }], "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }], "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }], "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }], "title-md": ["16px", { lineHeight: "22px", fontWeight: "600" }], "label-sm": ["10px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }], "headline-xl-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "800" }] } } } };</script><style>@layer base { html, body { margin: 0; padding: 0; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 px-gutter flex flex-col justify-center gap-space-xs"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs"><img alt="KrishiBazaar Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WEn_hgkknwIGhWhthyof0CSb9dV_g4xW1qzWIyYGlEsfms5vru15LNeIx-GakrypqGQH_Bmm8WbKsxbGlXvy6SeaZf2q8WrP1kruDMT13Y0pNJpQO5RNdUeX_PGtlwyHG1Ob_iCAM0bwcDCXh05AG8LLzPMYKNH8B9gIE1hurinCjjslOBmbXrPluGGKV4GaC0sftAjzrMuMLdA3s2vkTXz1DqmjsPqmltZ4on_I8"><span class="font-title-lg text-title-lg text-primary tracking-tight font-bold">KrishiBazaar</span><div class="flex items-center gap-0.5 ml-space-xs px-space-xs py-0.5 rounded-full bg-surface-container-low"><span class="material-symbols-outlined text-[15px] text-tertiary-container">location_on</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Nashik, 422003</span><span class="material-symbols-outlined text-[15px] text-on-surface-variant">arrow_drop_down</span></div></div><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center relative rounded-full text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[24px]">notifications</span><span class="absolute top-2 right-2 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-[9px] flex items-center justify-center font-bold">2</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ml-space-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8e6kbYZEkkfzv3r7xC7w-p3v-K5qm4xzWDNUykyhWBJKXxDBjRAnnr4Wv3vTiavMjmDoC4UqTk6vnqot-dre-6RDjPUZ7L4aJ4ZzYI63ekd-bMzKVo0hYUMOot5NUCiPn9y-KrDeRSxDL93CWsc-VML1leJkTya0w_KnG_TTzWJxH4Ie9kGi9HTbc0BPv1J9k80lVIQg9bTJ7R39_9GhfAfhnht7xj72Q-UulbA"></div></div><div class="flex items-center gap-space-xs"><div class="flex-1 flex items-center h-10 px-space-sm rounded-lg bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><span class="material-symbols-outlined text-outline text-[20px] mr-space-xs">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search seeds, fertilizers, pesticides..." type="text"><button class="w-8 h-8 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[18px]">mic</span></button><button class="w-8 h-8 flex items-center justify-center text-tertiary"><span class="material-symbols-outlined text-[18px]">photo_camera</span></button></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-28 pb-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Profile Header & Farm Cover Image -->
+<div class="relative w-full">
+<!-- Farm Background Banner -->
+<div class="relative w-full h-48 sm:h-56 bg-surface-container overflow-hidden">
+<img alt="Lush green agricultural tomato field in Nashik Maharashtra surrounded by picturesque mountains during warm morning golden hour" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnXHOULeNbKW6dW9P6uYouUaRoVsPH7L7yL-TeqcQfgxUY_bh76QrO_fExkwVV2QpjPOCeDqhQYYK16pYir6PlOyBYMrKjzWJIfR_ZA1Z9J4NlNB9oNlbQlCxDlIUClMk0QDzA2OjNKIty8pY-h8H7EbsYzkwqeEWiuQCbZ7n9UhEEOvIX1GqH9AhUCBCDjtD8i2P_2dh5GhX_Roq8bJcg30sCOdeYMwTakD4YfQ">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+<!-- Top Action Floating Chips -->
+<div class="absolute top-3 left-4 right-4 flex items-center justify-between pointer-events-auto">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-sm text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+          AgriStack ID: MH-NSK-4029
+        </span>
+<div class="flex items-center gap-2">
+<button aria-label="Share Profile" class="w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center text-on-surface shadow-sm active:scale-95 transition-transform" id="shareBtn">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button aria-label="Bookmark Farmer" class="w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center text-on-surface shadow-sm active:scale-95 transition-transform" id="bookmarkBtn">
+<span class="material-symbols-outlined text-[18px]">favorite_border</span>
+</button>
+</div>
+</div>
+<!-- Soil & Harvest Pill in Cover -->
+<div class="absolute bottom-3 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md text-white font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary-fixed">eco</span>
+<span class="">Harvest Season: Kharif &amp; Rabi Active</span>
+</div>
+</div>
+<!-- Farmer Identity Overlap Card -->
+<div class="relative px-margin -mt-12">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<!-- Avatar Row -->
+<div class="flex items-end justify-between -mt-16">
+<div class="relative">
+<div class="w-24 h-24 rounded-full p-1 bg-surface-container-lowest shadow-lg">
+<img alt="Portrait photo of a proud smiling Indian farmer wearing a traditional pagri turban and kurta" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9ZAjFjlH2o_kWdDPBVcgSqEUOmuwurKJlFgEc7cWX55jfLEOuiqGPXyeLwvOKJoIIH698KcesBLFliK7u5MJ4znUs9EeyyUi8tpqKOQz5dE-LNW9D3Xda3d2lkyEusID7NaWUB3omuIuMhHo_cCml6F9tFYawY1sW1smlg_Hs4bG8YJ1twmOnODkbDvnkWRxmjaz5CK2jjiFy2wGn53QjROcunTRoS4Nj0R1Dzg">
+</div>
+<!-- Verification badge icon over avatar -->
+<div class="absolute bottom-1 right-1 w-7 h-7 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<!-- Quick Action Buttons -->
+<div class="flex items-center gap-2 pb-1">
+<button class="h-10 px-4 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" id="followFarmerBtn">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span id="followText" class="">Follow (1.4k)</span>
+</button>
+<a class="h-10 px-3.5 rounded-lg bg-surface-container-low text-primary font-label-md text-label-md font-semibold flex items-center gap-1 active:scale-95 transition-all" href="tel:+919800042200">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span class="">Farm-Gate</span>
+</a>
+</div>
+</div>
+<!-- Name & Recognition Badges -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Ramesh Vithal Patil</h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+              ICAR Certified
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">Progressive Kisan &amp; Organic Producer • FPO #4029</p>
+</div>
+<!-- Meta Details Mosaic -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs pt-1">
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-tertiary mt-0.5">location_on</span>
+<div class="min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface font-medium truncate">Adgaon Rural, Dindori Tehsil, Nashik</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Maharashtra (Pin: 422003)</p>
+</div>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5">landscape</span>
+<div class="min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface font-medium">14.5 Acres Cultivated</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Jirayat &amp; Bagayat Rich Farmland</p>
+</div>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5">verified_user</span>
+<div class="min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface font-medium">18+ Years Organic Farming</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">NPOP Certification #ORG-9281</p>
+</div>
+</div>
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5">groups</span>
+<div class="min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Member Since 2019</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">MahaAgro FPO Cluster Lead</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Farm Metric Stats Ribbon -->
+<div class="px-margin mt-space-lg">
+<div class="bg-surface-container-low rounded-xl p-space-md grid grid-cols-2 gap-space-sm sm:grid-cols-4">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Overall Rating</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="mt-2">
+<div class="flex items-baseline gap-1">
+<span class="font-price-hero text-price-hero text-on-surface font-bold">4.8</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ 5.0</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">214 Farmer Reviews</p>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dispatches</span>
+<span class="material-symbols-outlined text-[16px] text-primary">local_shipping</span>
+</div>
+<div class="mt-2">
+<div class="flex items-baseline gap-1">
+<span class="font-price-hero text-price-hero text-primary font-bold">1,240+</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Orders Fulfilled</p>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">GI Specialty</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">workspace_premium</span>
+</div>
+<div class="mt-2">
+<p class="font-title-md text-title-md text-on-surface font-bold leading-tight">Nashik Grapes</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">&amp; NS-501 Tomatoes</p>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sourcing Trust</span>
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="mt-2">
+<p class="font-title-md text-title-md text-primary font-bold leading-tight">100% Purity</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">ICAR &amp; NPOP Certified</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Direct Mandi Rate Benchmark Bar -->
+<div class="px-margin mt-space-md">
+<div class="bg-primary-container text-on-primary-container rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">trending_down</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-bold">Direct Farm Gate Savings</span>
+<span class="px-2 py-0.2 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">18-24% OFF</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary-container/90">Pimpalgaon &amp; Lasalgaon Mandi comparative rate updated today</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-primary-container shrink-0">arrow_forward</span>
+</div>
+</div>
+<!-- About the Farmer Section -->
+<section class="px-margin mt-space-xl">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">psychology_alt</span>
+<h2 class="font-title-lg text-title-lg text-on-surface font-bold">About the Farmer</h2>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+          Third Generation
+        </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Namaste! I am Ramesh Patil, a third-generation cultivator from Nashik. Across our 14.5 acres of black cotton soil, we specialize in high-yield hybrid tomatoes, premium table grapes, and native bio-certified pulses. We practice drip fertigation, zero-chemical natural pest management, and guarantee transparent harvest batch traceability directly from our farm gate to your village hub.
+      </p>
+<!-- Farm Practices Tags -->
+<div class="flex flex-col gap-2 pt-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-bold">Verified Farming Practices</span>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[15px] text-primary">water_drop</span>
+            Drip Irrigation
+          </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[15px] text-secondary">compost</span>
+            Zero Residue
+          </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[15px] text-tertiary">ac_unit</span>
+            Cold-Storage Ready
+          </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[15px] text-primary">assignment_turned_in</span>
+            Soil Health Card (Grade A)
+          </span>
+</div>
+</div>
+<!-- Trust Micro-Banner -->
+<div class="rounded-lg bg-surface-container-high/60 p-3 flex items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">format_image_left</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Quality tested under Maharashtra Krishi Vikas Cell</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Audit PDF</span>
+</div>
+</div>
+</section>
+<!-- Products by Ramesh Patil Section -->
+<section class="px-margin mt-space-xl">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">storefront</span>
+<h2 class="font-title-lg text-title-lg text-on-surface font-bold">Products by Ramesh Patil</h2>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">8 Items Available</span>
+</div>
+<!-- Category Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-space-sm pt-1 no-scrollbar">
+<button class="filter-chip px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md whitespace-nowrap shadow-sm" data-category="all">
+        All (8)
+      </button>
+<button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap" data-category="produce">
+        Fresh Produce (3)
+      </button>
+<button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap" data-category="seeds">
+        Certified Seeds (2)
+      </button>
+<button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap" data-category="fertilizers">
+        Bio-Fertilizers (3)
+      </button>
+</div>
+<!-- Product Card 1: Tomato Seeds -->
+<div class="flex flex-col gap-space-md mt-2">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm relative">
+<div class="flex gap-space-md">
+<!-- Product Thumb -->
+<div class="relative w-24 h-24 rounded-lg bg-surface-container-low shrink-0 overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="High quality seed packet of Namdhari Hybrid Tomato NS-501, realistic macro studio product shot, bright green agricultural background, authentic branding label" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtSY1Jm-IgbwT4HVO540YECJJSbWILFAaFKxi2iMxIopxaSACj6NwtrNPdgfWC5JnPjxAuL6d-QGxclvg4aIwZBDbu0ZSXZpzYo6N4u_u2GuUqjGTYzdifnZFjAA7CE42KU2CZI79Vkep8dUuWBFXNBDRXGdIuMDFUWFO59rfvzaQvlomX8EHz7-rOkqvOtsis1oHYUolKWybdWbB-ez1_VpdKVN7k7yT6v7nszQ">
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[9px] font-bold">24% OFF</span>
+</div>
+<!-- Product Details -->
+<div class="flex-1 flex flex-col justify-between min-w-0">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-[10px] font-bold">Govt Certified</span>
+<div class="flex items-center gap-0.5 text-tertiary">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">4.8</span>
+<span class="font-label-sm text-label-sm text-outline">(1,248)</span>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate mt-1">Namdhari Tomato NS-501</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">High germination rate, early blight resistant hybrid</p>
+</div>
+<!-- Price & Weight -->
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-price-card text-price-card text-primary font-bold">₹340</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹450</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">10g Foil Pack</span>
+</div>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">local_shipping</span>
+<span class="">Dispatch in 24 hrs</span>
+</div>
+<button class="add-cart-btn h-10 px-4 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold flex items-center gap-1.5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span class="">Add to Cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card 2: Nashik Red Onions -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm relative">
+<div class="flex gap-space-md">
+<!-- Product Thumb -->
+<div class="relative w-24 h-24 rounded-lg bg-surface-container-low shrink-0 overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Freshly harvested red onions in burlap sacks on agricultural farm field, sunny day, Maharashtra Nashik onion produce close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm-9YFSXZ6Wb2vOvynBMyF9nGGLaKuMgliBzgbJltFKQRX0JKssZa8KaE1InamqdicEOb2jpKLEgqdxNdk2QJdj1Mzic7_UTlo7I47ybKRjErcYPUFKVKIBQZPOqumMk18KKuXHm41xk7aI3M7DsTZXvsQVbjmGDb-Y5Kq-JP1DGEF0IWdkFwnGty-OjNhhdOWGvUI0UwZ34X9dbxdVmlnW9IYe_SAu7NeX5rDcw">
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-[9px] font-bold">Farm Fresh</span>
+</div>
+<!-- Product Details -->
+<div class="flex-1 flex flex-col justify-between min-w-0">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-[10px] font-bold">Garwa Grade-A</span>
+<div class="flex items-center gap-0.5 text-tertiary">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">4.9</span>
+<span class="font-label-sm text-label-sm text-outline">(640)</span>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate mt-1">Farm Nashik Red Onions</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Long shelf-life, dry cured in farm shed directly</p>
+</div>
+<!-- Price & Weight -->
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-price-card text-price-card text-primary font-bold">₹28<span class="font-body-sm text-body-sm font-normal text-on-surface-variant">/kg</span></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">(25kg Bag: ₹700)</span>
+</div>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">scale</span>
+<span class="">Min Bulk: 25 kg</span>
+</div>
+<button class="add-cart-btn h-10 px-4 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold flex items-center gap-1.5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span class="">Add to Cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card 3: Bio Vermicompost -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm relative">
+<div class="flex gap-space-md">
+<!-- Product Thumb -->
+<div class="relative w-24 h-24 rounded-lg bg-surface-container-low shrink-0 overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="High quality enriched organic bio vermicompost fertilizer sack packaging on farm floor, agricultural organic certification mark visible" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtAUNl5ykgYsbg1avWA7sCIAzD3PmsyxWpddi6BHoUKrDv5ej7Fi4S2rnwWqMQtDgqVNZ_OelLAaDcJMzxKB8VZRAIi2Fi8dF3wl4l7brudRibVBBOVHm0gymb8_x8xH9h2FSYLSmo3ElsK5L88jVJRfaLuHVaLQKXCU3g-HeVIDbN1EwctO3jscfJ7Ws5aPJa53_36xfHg2FUhtbkdovZ1kOSKyrW_ekQyxtezA">
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[9px] font-bold">100% Bio</span>
+</div>
+<!-- Product Details -->
+<div class="flex-1 flex flex-col justify-between min-w-0">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-secondary font-label-sm text-[10px] font-bold">NPOP Approved</span>
+<div class="flex items-center gap-0.5 text-tertiary">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">4.7</span>
+<span class="font-label-sm text-label-sm text-outline">(410)</span>
+</div>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate mt-1">Enriched Bio-Vermicompost</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Cow dung &amp; neem fortified earthworm manure</p>
+</div>
+<!-- Price & Weight -->
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-price-card text-price-card text-primary font-bold">₹380</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹460</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">25kg Kisan Bag</span>
+</div>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">eco</span>
+<span class="">Microbial Enriched</span>
+</div>
+<button class="add-cart-btn h-10 px-4 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold flex items-center gap-1.5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span class="">Add to Cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- View All Products CTA Link -->
+<button class="w-full mt-space-md py-3 rounded-lg bg-surface-container-low text-primary font-title-md text-title-md font-semibold flex items-center justify-center gap-2 active:scale-98 transition-transform">
+<span class="">View All 8 Farm Gate Listings</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</section>
+<!-- Ratings & Customer Reviews Section -->
+<section class="px-margin mt-space-xl">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[22px]" style="font-variation-settings: 'FILL' 1;">rate_review</span>
+<h2 class="font-title-lg text-title-lg text-on-surface font-bold">Farmer Ratings &amp; Reviews</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">214 Verified</span>
+</div>
+<!-- Rating Breakdown Scorecard -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col sm:flex-row gap-space-md items-center">
+<!-- Big Number -->
+<div class="flex flex-col items-center justify-center sm:pr-space-md sm:border-r-0">
+<span class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface font-bold">4.8</span>
+<div class="flex items-center text-tertiary my-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center">Western Maharashtra APMC Cluster</span>
+</div>
+<!-- Rating Bars -->
+<div class="flex-1 w-full flex flex-col gap-1.5">
+<!-- 5 star -->
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-6">5 ★</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 88%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant w-8 text-right font-medium">88%</span>
+</div>
+<!-- 4 star -->
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-6">4 ★</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary-fixed-dim rounded-full" style="width: 9%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant w-8 text-right font-medium">9%</span>
+</div>
+<!-- 3 star -->
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant w-6">3 ★</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim rounded-full" style="width: 3%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant w-8 text-right font-medium">3%</span>
+</div>
+</div>
+</div>
+<!-- Trust Badge -->
+<div class="p-2.5 rounded-lg bg-surface-container text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">100% Verified Farmer &amp; Buyer Reviews via KrishiBazaar Mandi Network</span>
+</div>
+<!-- Individual Review Cards -->
+<div class="flex flex-col gap-space-md pt-1">
+<!-- Review 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-title-md font-bold text-[13px]">
+                TS
+              </div>
+<div>
+<p class="font-title-md text-title-md text-on-surface font-semibold leading-tight">Tukaram B. Shinde</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Lasalgaon, Niphad • Verified Buyer</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">2 days ago</span>
+</div>
+<div class="flex items-center text-tertiary gap-0.5">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            "Excellent seed purity and packaging. The NS-501 tomato seeds gave 94% germination in our nursery bed. Fast village van delivery directly to Gram Panchayat."
+          </p>
+</div>
+<!-- Review 2 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-title-md font-bold text-[13px]">
+                SM
+              </div>
+<div>
+<p class="font-title-md text-title-md text-on-surface font-semibold leading-tight">Sunita Devidas More</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Dindori Valley FPO • Verified Buyer</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">1 week ago</span>
+</div>
+<div class="flex items-center text-tertiary gap-0.5">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            "Rameshji's vermicompost and fresh onion batches are top-notch. Honest pricing and direct farm gate transparency. We have ordered 25 bags collectively for our Self Help Group."
+          </p>
+</div>
+<!-- Review 3 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-title-md font-bold text-[13px]">
+                GK
+              </div>
+<div>
+<p class="font-title-md text-title-md text-on-surface font-semibold leading-tight">Ganesh Pandurang Kadam</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Yeola Cluster • Verified Buyer</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">2 weeks ago</span>
+</div>
+<div class="flex items-center text-tertiary gap-0.5">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            "Very knowledgeable progressive farmer. Ordered 10 packs of seeds; dispatch was prompt within 24 hours. Excellent harvest yields guaranteed."
+          </p>
+</div>
+</div>
+<!-- Action Buttons for Reviews -->
+<div class="flex items-center gap-2 pt-2">
+<button class="flex-1 h-11 rounded-lg bg-surface-container text-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-1 active:scale-95 transition-transform" id="writeReviewBtn">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span class="">Write a Review</span>
+</button>
+<button class="flex-1 h-11 rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md font-semibold flex items-center justify-center gap-1 active:scale-95 transition-transform">
+<span class="">Load More (211)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Farm Location & Community Hub Card -->
+<section class="px-margin mt-space-xl">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">pin_drop</span>
+<h2 class="font-title-lg text-title-lg text-on-surface font-bold">Farm Location &amp; Pick-up Point</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Open 7 AM - 6 PM</span>
+</div>
+<!-- Static Map Embed Integration -->
+<div class="w-full h-40 rounded-lg bg-surface-container bg-cover bg-center overflow-hidden relative shadow-inner" data-location="Adgaon, Nashik, Maharashtra" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoN_5QvPz9DkT9C1YnMBPUZSYGCCMrZ7qPAITU2VIrbWv4cLJViEB3J2tbP_JE3o8CgFr-iL2RaH7xEprwdY-lWyq8QS0uVN6KPe_Ye-TFrtSWVBkM_sqqc5Oh6JiNjM4csCKPjv2sY45E6V2pJiZYbTepCifSnGWruNyBg40pTfyoRhPOmuekN2iCdPO8tBP04bZb0uuwkpMW7y5m7ztjPxI3w7vEfNP_b31szQ');">
+<div class="absolute inset-0 bg-black/20"></div>
+<div class="absolute bottom-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-lg flex items-center gap-2 shadow">
+<span class="material-symbols-outlined text-primary text-[18px]">navigation</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">12 km from Dindori Highway Exit</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="text-on-surface-variant">
+<p class="font-body-sm text-body-sm font-medium text-on-surface">Patil Organic Farm Gate Hub #2</p>
+<p class="font-label-sm text-label-sm text-outline">Gat No. 142/A, Adgaon Shivar, Nashik</p>
+</div>
+<a class="h-9 px-3 rounded-lg bg-surface-container text-primary font-label-md text-label-md font-semibold flex items-center gap-1" href="https://maps.google.com" target="_blank">
+<span class="material-symbols-outlined text-[16px]">directions</span>
+<span class="">Route</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Sticky Farm-Gate Helpline & Support Bar -->
+<div class="px-margin mt-space-xl mb-6">
+<div class="bg-surface-container-high rounded-xl p-space-md flex items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+</div>
+<div class="min-w-0">
+<h4 class="font-title-md text-title-md text-on-surface font-bold truncate">Have Sourcing Questions?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Connect directly with Farmer Ramesh via WhatsApp</p>
+</div>
+</div>
+<a class="h-10 px-4 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md font-semibold flex items-center gap-1.5 shrink-0 active:scale-95 transition-transform shadow" href="https://wa.me/919800042200">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span class="">WhatsApp</span>
+</a>
+</div>
+</div>
+<!-- Toast Notification Alert container for micro-interactions -->
+<div class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 translate-y-4" id="toastContainer">
+<div class="px-4 py-2.5 rounded-full bg-inverse-surface text-inverse-on-surface font-label-md text-label-md shadow-xl flex items-center gap-2" id="toastMessage">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">check_circle</span>
+<span id="toastText" class="">Item added to your basket</span>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interaction: Follow Farmer toggle
+  const followBtn = document.getElementById('followFarmerBtn');
+  const followText = document.getElementById('followText');
+  let isFollowing = false;
+
+  if (followBtn) {
+    followBtn.addEventListener('click', () => {
+      isFollowing = !isFollowing;
+      if (isFollowing) {
+        followText.textContent = 'Following (1.4k)';
+        followBtn.classList.remove('bg-primary-container', 'text-on-primary-container');
+        followBtn.classList.add('bg-surface-container-highest', 'text-on-surface');
+        showToast('You are now following Ramesh Vithal Patil');
+      } else {
+        followText.textContent = 'Follow (1.4k)';
+        followBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+        followBtn.classList.remove('bg-surface-container-highest', 'text-on-surface');
+        showToast('Unfollowed Ramesh Vithal Patil');
+      }
+    });
+  }
+
+  // Micro-interaction: Bookmark Profile
+  const bookmarkBtn = document.getElementById('bookmarkBtn');
+  let isBookmarked = false;
+  if (bookmarkBtn) {
+    bookmarkBtn.addEventListener('click', () => {
+      isBookmarked = !isBookmarked;
+      const icon = bookmarkBtn.querySelector('.material-symbols-outlined');
+      if (isBookmarked) {
+        icon.textContent = 'favorite';
+        icon.classList.add('text-error');
+        showToast('Saved to your favorite farmers list');
+      } else {
+        icon.textContent = 'favorite_border';
+        icon.classList.remove('text-error');
+        showToast('Removed from favorites');
+      }
+    });
+  }
+
+  // Micro-interaction: Add to cart toast trigger
+  const addCartButtons = document.querySelectorAll('.add-cart-btn');
+  addCartButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      showToast('Added product to your Farm Cart!');
+    });
+  });
+
+  // Category filter chip state
+  const filterChips = document.querySelectorAll('.filter-chip');
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => {
+        c.classList.remove('bg-primary-container', 'text-on-primary');
+        c.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      chip.classList.add('bg-primary-container', 'text-on-primary');
+      chip.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      showToast('Filtered: ' + chip.innerText.trim());
+    });
+  });
+
+  // Share profile
+  const shareBtn = document.getElementById('shareBtn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Ramesh Vithal Patil - KrishiBazaar Profile',
+          text: 'Verified Organic Farmer and seed producer in Nashik, Maharashtra',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        showToast('Farmer profile link copied to clipboard');
+      }
+    });
+  }
+
+  // Toast Helper
+  function showToast(message) {
+    const toast = document.getElementById('toastContainer');
+    const toastText = document.getElementById('toastText');
+    if (!toast || !toastText) return;
+    toastText.textContent = message;
+    toast.classList.remove('opacity-0', 'translate-y-4');
+    toast.classList.add('opacity-100', 'translate-y-0');
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'translate-y-4');
+      toast.classList.remove('opacity-100', 'translate-y-0');
+    }, 2400);
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_10px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-label-sm text-label-sm">Home</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant transition-colors" data-path="categories" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm">Categories</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant transition-colors" data-path="search" href="#"><span class="material-symbols-outlined text-[22px]">search</span><span class="font-label-sm text-label-sm">Search</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant transition-colors relative" data-path="cart" href="#"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">shopping_cart</span><span class="absolute -top-1.5 -right-2.5 px-1 min-w-[15px] h-[15px] rounded-full bg-primary-container text-on-primary-container font-label-sm text-[9px] flex items-center justify-center font-bold">3</span></div><span class="font-label-sm text-label-sm">Cart</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-primary font-semibold transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">person</span><span class="font-label-sm text-label-sm">Profile</span></a></div></nav>
+
+</body></html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-secondary": "#ffffff", "tertiary-fixed-dim": "#ffb77d", "primary-fixed-dim": "#79db8d", "inverse-primary": "#79db8d", "surface-container-highest": "#dae2fd", "background": "#faf8ff", "outline-variant": "#becabc", "surface-container-high": "#e2e7ff", "tertiary-fixed": "#ffdcc3", "surface-dim": "#d2d9f4", "primary-container": "#15803d", "on-tertiary-fixed": "#2f1500", "secondary": "#006e2f", "primary-fixed": "#95f8a7", "tertiary-container": "#a95b00", "error": "#ba1a1a", "surface-bright": "#faf8ff", "inverse-on-surface": "#eef0ff", "on-tertiary-container": "#fff1e9", "surface-container-lowest": "#ffffff", "on-surface-variant": "#3f493f", "secondary-fixed-dim": "#4ae176", "on-tertiary-fixed-variant": "#6e3900", "on-secondary-container": "#007432", "on-error-container": "#93000a", "tertiary": "#854600", "on-primary-container": "#d3ffd5", "surface-container-low": "#f2f3ff", "surface-container": "#eaedff", "on-error": "#ffffff", "on-primary": "#ffffff", "error-container": "#ffdad6", "inverse-surface": "#283044", "secondary-fixed": "#6bff8f", "on-secondary-fixed": "#002109", "surface": "#faf8ff", "on-primary-fixed-variant": "#005323", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#005321", "on-background": "#131b2e", "surface-tint": "#006d30", "outline": "#6f7a6e", "surface-variant": "#dae2fd", "secondary-container": "#6bff8f", "primary": "#00652c", "on-primary-fixed": "#00210a", "on-surface": "#131b2e" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "gutter-desktop": "1.5rem", "space-2xl": "2rem", "space-xl": "1.5rem", "margin": "1rem", "space-sm": "0.5rem", "space-md": "0.75rem", "space-3xl": "3rem", "margin-desktop": "2.5rem", "margin-tablet": "1.5rem", "space-xs": "0.25rem", "space-lg": "1rem" }, fontFamily: { "price-hero": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "title-lg": ["Plus Jakarta Sans"], "price-card": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "title-md": ["Inter"], "label-sm": ["Inter"], "headline-xl-mobile": ["Plus Jakarta Sans"] }, fontSize: { "price-hero": ["28px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "800" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "title-lg": ["18px", { lineHeight: "24px", fontWeight: "600" }], "price-card": ["20px", { lineHeight: "24px", fontWeight: "700" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "700" }], "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }], "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }], "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }], "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }], "title-md": ["16px", { lineHeight: "22px", fontWeight: "600" }], "label-sm": ["10px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }], "headline-xl-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "800" }] } } } };</script><style>@layer base { html, body { margin: 0; padding: 0; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 px-gutter flex flex-col justify-center gap-space-xs"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs"><img alt="KrishiBazaar Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WEn_hgkknwIGhWhthyof0CSb9dV_g4xW1qzWIyYGlEsfms5vru15LNeIx-GakrypqGQH_Bmm8WbKsxbGlXvy6SeaZf2q8WrP1kruDMT13Y0pNJpQO5RNdUeX_PGtlwyHG1Ob_iCAM0bwcDCXh05AG8LLzPMYKNH8B9gIE1hurinCjjslOBmbXrPluGGKV4GaC0sftAjzrMuMLdA3s2vkTXz1DqmjsPqmltZ4on_I8"><span class="font-title-lg text-title-lg text-primary tracking-tight font-bold">KrishiBazaar</span><div class="flex items-center gap-0.5 ml-space-xs px-space-xs py-0.5 rounded-full bg-surface-container-low"><span class="material-symbols-outlined text-[15px] text-tertiary-container">location_on</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Nashik, 422003</span><span class="material-symbols-outlined text-[15px] text-on-surface-variant">arrow_drop_down</span></div></div><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center relative rounded-full text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[24px]">notifications</span><span class="absolute top-2 right-2 w-4 h-4 rounded-full bg-error text-on-error font-label-sm text-[9px] flex items-center justify-center font-bold">2</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ml-space-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8e6kbYZEkkfzv3r7xC7w-p3v-K5qm4xzWDNUykyhWBJKXxDBjRAnnr4Wv3vTiavMjmDoC4UqTk6vnqot-dre-6RDjPUZ7L4aJ4ZzYI63ekd-bMzKVo0hYUMOot5NUCiPn9y-KrDeRSxDL93CWsc-VML1leJkTya0w_KnG_TTzWJxH4Ie9kGi9HTbc0BPv1J9k80lVIQg9bTJ7R39_9GhfAfhnht7xj72Q-UulbA"></div></div><div class="flex items-center gap-space-xs"><div class="flex-1 flex items-center h-10 px-space-sm rounded-lg bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><span class="material-symbols-outlined text-outline text-[20px] mr-space-xs">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search seeds, fertilizers, pesticides..." type="text"><button class="w-8 h-8 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[18px]">mic</span></button><button class="w-8 h-8 flex items-center justify-center text-tertiary"><span class="material-symbols-outlined text-[18px]">photo_camera</span></button></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-28 pb-20 bg-surface"><div class="flex flex-col w-full pb-24">
+<!-- Stepper Checkout Flow -->
+<div class="px-gutter pt-space-sm pb-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between relative">
+<div class="flex items-center gap-space-xs z-10">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-sm text-label-sm">
+            1
+          </div>
+<span class="font-label-md text-label-md text-primary font-bold">Cart (3)</span>
+</div>
+<div class="h-0.5 flex-1 bg-surface-container-high mx-space-xs"></div>
+<div class="flex items-center gap-space-xs z-10 opacity-60">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm">
+            2
+          </div>
+<span class="font-label-md text-label-md text-on-surface-variant">Delivery</span>
+</div>
+<div class="h-0.5 flex-1 bg-surface-container-high mx-space-xs"></div>
+<div class="flex items-center gap-space-xs z-10 opacity-60">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm">
+            3
+          </div>
+<span class="font-label-md text-label-md text-on-surface-variant">Payment</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Delivery Hub & Village Progress Indicator -->
+<div class="px-gutter mb-space-md">
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">local_shipping</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Delivering to</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate">Nashik, 422003 (Village Hub)</span>
+</div>
+</div>
+<button class="bg-surface-container-lowest text-primary font-label-md text-label-md px-space-md py-1.5 rounded-full shadow-sm">
+          Change
+        </button>
+</div>
+<!-- Free Delivery Reward Meter -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">🎉 You have unlocked FREE Village Delivery!</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through">₹80</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Mandi Price Savings Highlight Pill -->
+<div class="px-gutter mb-space-md">
+<div class="bg-on-tertiary-container rounded-xl p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[22px]">trending_down</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-tertiary-fixed">Save ₹380 vs Mandi Rates</span>
+<span class="font-body-sm text-body-sm text-tertiary">Direct farm gate pricing verified by APMC Nashik</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]">info</span>
+</div>
+</div>
+<!-- Cart Items List -->
+<div class="px-gutter flex flex-col gap-space-md mb-space-xl">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Cart Items (3)</h2>
+<span class="font-label-sm text-label-sm text-primary font-bold">ALL IN STOCK</span>
+</div>
+<!-- Product 1: Namdhari Tomato Seeds -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex gap-space-md">
+<div class="relative w-24 h-24 rounded-lg bg-surface-container-low shrink-0 overflow-hidden flex items-center justify-center">
+<img alt="Namdhari Tomato Seeds" class="w-full h-full object-cover" data-alt="A premium sealed foil pack of Namdhari Hybrid Tomato Seeds NS-501, showing vibrant red tomatoes on the front label, sitting cleanly against a studio white backdrop with soft diffused lighting, highlighting crisp agricultural packaging." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW7I2pYb2bWODYD6p13Bw8u0mQvZ7Ous-kAebDI2i9-jDr3tYTqaGB6JUFU7rc-k3teDDofiHvHurFLj7KZHoqxGZqKPxehXt-bM6gkgHMJgnfmdFNqZ_dhKGT9XjHjWXIJI_sn23-JpuxjULs55LyIIP4-D5kJCyuBJyWwsfsgo9WQY8CqKHpo8KOqXsNVw05uTiWVJRnofmJI4jDmKhhyjKGC2mRMFl62Fxzeg">
+<span class="absolute top-1 left-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[9px] px-1.5 py-0.5 rounded-full font-bold">
+            24% OFF
+          </span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-1 mb-0.5">
+<span class="font-label-sm text-label-sm text-primary font-bold">Namdhari Seeds</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px] text-primary">verified_user</span> Govt Certified
+            </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate">Hybrid Tomato Seeds NS-501</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Pack: 10 g Pouch (~5 Guntha)</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-price-card text-price-card text-on-surface">₹340</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹450</span>
+</div>
+</div>
+</div>
+<!-- Item Control Bar -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs bg-surface-container-low rounded-lg p-1">
+<button class="w-8 h-8 rounded-md bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="font-title-md text-title-md px- space-xs font-bold text-on-surface w-6 text-center">2</span>
+<button class="w-8 h-8 rounded-md bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant p-2 rounded-lg bg-surface-container-low active:bg-surface-container">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+<span class="hidden sm:inline">Wishlist</span>
+</button>
+<button class="flex items-center gap-1 font-label-md text-label-md text-error p-2 rounded-lg bg-surface-container-low active:bg-surface-container">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span class="hidden sm:inline">Remove</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-low px-space-sm py-1.5 rounded-lg flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Standard Delivery by <strong class="text-on-surface">Friday, Oct 24</strong></span>
+</div>
+</div>
+<!-- Product 2: IFFCO NPK Fertilizer -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex gap-space-md">
+<div class="relative w-24 h-24 rounded-lg bg-surface-container-low shrink-0 overflow-hidden flex items-center justify-center">
+<img alt="IFFCO NPK Fertilizer" class="w-full h-full object-cover" data-alt="An authentic IFFCO brand 1kg bag of 19 19 19 100 percent water soluble complex fertilizer, packaged in white and green agrarian pouch, set in a brightly lit modern store studio with clean highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB4dXwkCkdKM7qJqdAdoK9mdUpTfQSLHsifxyg21eK31CjntM_m6rA7SfXjQkOSZKuIuZRLLD9nxAAFIDmXyvi180gFLqN7eWrTlmJhf3Oyn7JZvljoDdEnMJ9fCKytMTdLmt6WyRAprJEfQuHLMf-db0CVDuhdcFTIUIrjxbbGDp5mTPa6z2Z2Du82HX-XWun7kinOGEwHuIuIYKMkltT-5zJjqxxMsRi6sNfLA">
+<span class="absolute top-1 left-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[9px] px-1.5 py-0.5 rounded-full font-bold">
+            18% OFF
+          </span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-1 mb-0.5">
+<span class="font-label-sm text-label-sm text-primary font-bold">IFFCO Agri</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">100% Soluble</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate">NPK 19:19:19 Fertilizer</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Pack: 1 kg Pouch (Foliar Spray)</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-price-card text-price-card text-on-surface">₹165</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹200</span>
+</div>
+</div>
+</div>
+<!-- Item Control Bar -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs bg-surface-container-low rounded-lg p-1">
+<button class="w-8 h-8 rounded-md bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="font-title-md text-title-md px-space-xs font-bold text-on-surface w-6 text-center">3</span>
+<button class="w-8 h-8 rounded-md bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant p-2 rounded-lg bg-surface-container-low active:bg-surface-container">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+<span class="hidden sm:inline">Wishlist</span>
+</button>
+<button class="flex items-center gap-1 font-label-md text-label-md text-error p-2 rounded-lg bg-surface-container-low active:bg-surface-container">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span class="hidden sm:inline">Remove</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-low px-space-sm py-1.5 rounded-lg flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">bolt</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dispatch within 24 hrs from <strong class="text-on-surface">Nashik Warehouse</strong></span>
+</div>
+</div>
+<!-- Product 3: Multiplex Flower Booster Tonic -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex gap-space-md">
+<div class="relative w-24 h-24 rounded-lg bg-surface-container-low shrink-0 overflow-hidden flex items-center justify-center">
+<img alt="Multiplex Flower Booster Tonic" class="w-full h-full object-cover" data-alt="A 500ml amber plastic bottle of Multiplex Flower Booster bio-organic plant tonic, with vibrant floral illustrations on the label, placed in front of soft farm sunlight background with warm green reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOpFcckyrtIdpDbsPyVBT85TAsDWhvZHcPo4IHr69wQwOpNeR8M2frJF6e-WOollk0h5KmmIK8RUPJy7hG1N4frRTHWpXUpHSmDeGRhVdp64hLiBRDSnJY3UeEZ1jg8-HaWmNvG8dY2OOHzfUuu6B0ZpuYr-Y9r4G4yn1nadsDSbQ0OOR3qGHai7KHEUJgyi9iTYWA3sSaJ0TJYbQNt5bpfoZlP_kQakCX5Agz2A">
+<span class="absolute top-1 left-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[9px] px-1.5 py-0.5 rounded-full font-bold">
+            30% OFF
+          </span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-1 mb-0.5">
+<span class="font-label-sm text-label-sm text-primary font-bold">Multiplex</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">100% Bio-Certified</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate">Flower Booster Bio-Organic Tonic</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Pack: 500 ml Bottle</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-price-card text-price-card text-on-surface">₹290</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹415</span>
+</div>
+</div>
+</div>
+<!-- Item Control Bar -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs bg-surface-container-low rounded-lg p-1">
+<button class="w-8 h-8 rounded-md bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="font-title-md text-title-md px-space-xs font-bold text-on-surface w-6 text-center">1</span>
+<button class="w-8 h-8 rounded-md bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant p-2 rounded-lg bg-surface-container-low active:bg-surface-container">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+<span class="hidden sm:inline">Wishlist</span>
+</button>
+<button class="flex items-center gap-1 font-label-md text-label-md text-error p-2 rounded-lg bg-surface-container-low active:bg-surface-container">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span class="hidden sm:inline">Remove</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-low px-space-sm py-1.5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">warning</span>
+<span class="font-body-sm text-body-sm text-tertiary font-semibold">Only 4 left in stock at Nashik Hub</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Fast Moving</span>
+</div>
+</div>
+</div>
+<!-- Coupon & Kisan Subsidy Code -->
+<div class="px-gutter mb-space-xl">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">redeem</span>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Apply Coupon or DBT / Subsidy Voucher</h3>
+</div>
+<!-- Applied Badge -->
+<div class="bg-on-primary-container/20 rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-primary font-bold">KISAN100</span>
+<span class="font-label-sm text-label-sm bg-primary-container text-on-primary px-1.5 rounded-full">Applied</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">₹100 Off on agricultural orders above ₹1,000</span>
+</div>
+</div>
+<button class="text-error font-label-md text-label-md p-1 font-semibold">Remove</button>
+</div>
+<!-- Input Bar -->
+<div class="flex items-center gap-space-xs">
+<div class="flex-1 flex items-center h-12 px-space-md rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-outline text-[18px] mr-space-xs">confirmation_number</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none uppercase" placeholder="Enter Govt Voucher or Code" type="text" value="KISAN100">
+</div>
+<button class="h-12 px-space-lg bg-surface-container-highest text-on-surface font-label-md text-label-md rounded-lg font-bold">
+          Applied
+        </button>
+</div>
+</div>
+</div>
+<!-- Frequently Bought Together / Add-on Card -->
+<div class="px-gutter mb-space-xl">
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">eco</span>
+<h3 class="font-title-md text-title-md font-bold">Essential Seed Care Add-on</h3>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2 py-0.5 rounded-full text-primary font-semibold">Recommended</span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-space-md flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-lg bg-surface-container-low shrink-0 overflow-hidden flex items-center justify-center">
+<img alt="Trichoderma Seed Treatment" class="w-full h-full object-cover" data-alt="A small 250 gram agro pouch of Trichoderma Viride bio fungicide for seed treatment, showing green eco packaging, on pristine white studio light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZWjs7BjGWZ6TfhWTXjMVSIkoXZjLA6_MEIet2iH32x9PMlGS1LhkeNCQc6eyeIVdUrmeUUoZQhosi8Eye3Q3Z2cCsCDEfrjxMR2am6_Nw96_JIMWFo04acUugMHeyb71hvBgNx8QMNyqe2h998Du5FY61EiA2yL783UBR0Gz8RZrM_wRttbo_5Q6MyX18Rb9RSJibwVaFV6Z-WpnKvugOuhaezEA7RzBbxDCX4w">
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-title-md text-title-md text-on-surface font-semibold truncate">Trichoderma Viride Bio-Fungicide</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">250g Seed Treatment Pack</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-title-md text-title-md font-bold text-on-surface">₹85</span>
+<span class="font-body-sm text-body-sm text-outline line-through">₹120</span>
+</div>
+</div>
+</div>
+<button class="h-9 px-space-md bg-on-primary-container text-primary font-label-md text-label-md rounded-lg font-bold active:scale-95 shrink-0 flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span> Add
+        </button>
+</div>
+</div>
+</div>
+<!-- Order Summary Card -->
+<div class="px-gutter mb-space-xl">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Price Details (3 Items)</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tax Invoice Included</span>
+</div>
+<div class="flex flex-col gap-space-sm font-body-md text-body-md">
+<div class="flex justify-between text-on-surface-variant">
+<span class="">Total MRP</span>
+<span class="text-on-surface font-semibold">₹2,180</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="">Product Discount</span>
+<span class="text-primary font-semibold">- ₹535</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="flex items-center gap-1">
+            Coupon Discount (KISAN100)
+            <span class="material-symbols-outlined text-[15px] text-primary">sell</span>
+</span>
+<span class="text-primary font-semibold">- ₹100</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="">APMC Mandi Cess / Agri Tax</span>
+<span class="text-primary font-semibold">FREE</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="flex items-center gap-1">
+            Village Delivery Charge
+            <span class="material-symbols-outlined text-[15px] text-on-surface-variant">info</span>
+</span>
+<div class="flex items-center gap-1.5">
+<span class="line-through text-outline">₹80</span>
+<span class="text-primary font-bold">FREE</span>
+</div>
+</div>
+</div>
+<div class="h-0.5 bg-surface-container-low my-space-xs"></div>
+<div class="flex justify-between items-baseline">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Total Amount</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">GST included for all inputs</span>
+</div>
+<span class="font-price-hero text-price-hero text-primary">₹1,545</span>
+</div>
+<!-- Savings Banner -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">savings</span>
+<span class="font-label-md text-label-md text-primary font-bold">🌾 You will save ₹635 on this order!</span>
+</div>
+</div>
+</div>
+<!-- Trust & Farmer Guarantee Badges -->
+<div class="px-gutter mb-space-xl">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<div class="flex flex-col">
+<h5 class="font-title-md text-title-md text-on-surface font-bold">COD &amp; KCC Accepted</h5>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pay cash at farm gate or swipe Kisan Credit Card</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div class="flex flex-col">
+<h5 class="font-title-md text-title-md text-on-surface font-bold">Germination Guarantee</h5>
+<span class="font-body-sm text-body-sm text-on-surface-variant">7-day hassle-free replacement for low germination</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+</div>
+<div class="flex flex-col">
+<h5 class="font-title-md text-title-md text-on-surface font-bold">100% ICAR Approved</h5>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Certified genuine fertilizers and seeds directly from manufacturers</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Actions & Shopping Continues -->
+<div class="px-gutter mb-space-2xl flex justify-center">
+<button class="w-full sm:w-auto px-space-2xl py-3 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md font-bold shadow-sm flex items-center justify-center gap-space-xs active:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+      Continue Shopping for Seeds &amp; Fertilizers
+    </button>
+</div>
+<!-- Sticky Bottom Checkout Bar -->
+<div class="fixed bottom-16 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md shadow-xl px-gutter py-space-sm">
+<div class="max-w-xl mx-auto flex items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total:</span>
+<span class="font-price-card text-price-card text-on-surface">₹1,545</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Saved ₹635</span>
+</div>
+<button class="flex-1 max-w-xs h-12 px-space-lg bg-primary-container text-on-primary font-title-md text-title-md font-bold rounded-xl flex items-center justify-center gap-space-xs shadow-md active:scale-95 transition-transform">
+<span class="">Proceed to Checkout</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive quantity steppers micro-interaction
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      if (this.textContent.trim() === 'add' || this.textContent.trim() === 'remove') {
+        const span = this.parentElement.querySelector('span.font-title-md');
+        if (span) {
+          let val = parseInt(span.textContent);
+          if (this.textContent.trim() === 'add') {
+            span.textContent = val + 1;
+          } else if (val > 1) {
+            span.textContent = val - 1;
+          }
+        }
+      }
+    });
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_10px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-label-sm text-label-sm">Home</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant transition-colors" data-path="categories" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm">Categories</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant transition-colors" data-path="search" href="#"><span class="material-symbols-outlined text-[22px]">search</span><span class="font-label-sm text-label-sm">Search</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-primary font-bold transition-colors relative" data-path="cart" href="#"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[22px] text-primary">shopping_cart</span><span class="absolute -top-1.5 -right-2.5 px-1 min-w-[15px] h-[15px] rounded-full bg-primary-container text-on-primary-container font-label-sm text-[9px] flex items-center justify-center font-bold">3</span></div><span class="font-label-sm text-label-sm text-primary">Cart</span></a><a class="flex-1 h-full min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-on-surface-variant transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">Profile</span></a></div></nav>
+
+</body></html>

@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+web/dist/
+server/dist/
+*.tsbuildinfo
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+server/.env
+web/.env
+
+# Local SQLite databases
+server/prisma/*.db
+server/prisma/*.db-journal
+
+# Logs & OS cruft
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Test / coverage artifacts
+coverage/

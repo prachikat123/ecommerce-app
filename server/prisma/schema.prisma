@@ -1,0 +1,174 @@
+// KrishiBazaar (AgriMarket India Platform) — Prisma schema
+// Database: SQLite (persistent, file-based, zero-config)
+// Swap `provider` to "postgresql" later and re-run migrations to scale up.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(cuid())
+  name      String
+  phone     String     @unique
+  role      String     @default("CUSTOMER") // CUSTOMER | SELLER | ADMIN
+  village   String?
+  district  String?
+  state     String?
+  createdAt DateTime   @default(now())
+
+  seller    Seller?
+  cart      Cart?
+  orders    Order[]
+  favorites Favorite[]
+  addresses Address[]
+}
+
+model Seller {
+  id         String    @id @default(cuid())
+  userId     String    @unique
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  shopName   String
+  village    String?
+  district   String?
+  state      String?
+  verified   Boolean   @default(false)
+  rating     Float     @default(4.5)
+  createdAt  DateTime  @default(now())
+  products   Product[]
+}
+
+model Category {
+  id       String    @id @default(cuid())
+  slug     String    @unique
+  name     String
+  icon     String    // Material Symbols icon name
+  subtitle String?
+  sort     Int       @default(0)
+  products Product[]
+}
+
+model Product {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  name          String
+  brand         String
+  description   String
+  longDesc      String?
+  categoryId    String
+  category      Category @relation(fields: [categoryId], references: [id])
+  sellerId      String?
+  seller        Seller?  @relation(fields: [sellerId], references: [id])
+  mrp           Int      // in paise? No — whole rupees
+  price         Int
+  unit          String   // default pack label, e.g. "1 kg Pouch"
+  packSizes     String   // comma separated, e.g. "1 kg,5 kg,50 kg Bag"
+  stock         Int      @default(0)
+  rating        Float    @default(4.5)
+  ratingCount   Int      @default(0)
+  image         String
+  gallery       String?  // comma separated urls
+  badge         String?
+  certification String?
+  mandiPrice    Int?
+  isFlashDeal   Boolean  @default(false)
+  isBestSeller  Boolean  @default(false)
+  isNewArrival  Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  cartItems  CartItem[]
+  orderItems OrderItem[]
+  favorites  Favorite[]
+}
+
+model Cart {
+  id        String     @id @default(cuid())
+  userId    String     @unique
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     CartItem[]
+  updatedAt DateTime   @updatedAt
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  cartId    String
+  cart      Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity  Int      @default(1)
+  unit      String?
+  createdAt DateTime @default(now())
+
+  @@unique([cartId, productId])
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  orderNumber     String      @unique
+  userId          String
+  user            User        @relation(fields: [userId], references: [id])
+  status          String      @default("CONFIRMED") // CONFIRMED | PACKED | SHIPPED | DELIVERED | CANCELLED
+  paymentMethod   String      // COD | UPI | CARD | KCC
+  paymentStatus   String      @default("PENDING")   // PENDING | PAID
+  subtotal        Int
+  discount        Int         @default(0)
+  deliveryFee     Int         @default(0)
+  total           Int
+  itemCount       Int         @default(0)
+  addressName     String
+  addressPhone    String
+  addressLine     String
+  addressCity     String
+  addressState    String
+  addressPincode  String
+  notes           String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  items           OrderItem[]
+}
+
+model OrderItem {
+  id          String  @id @default(cuid())
+  orderId     String
+  order       Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId   String
+  product     Product @relation(fields: [productId], references: [id])
+  productName String
+  brand       String
+  unit        String?
+  image       String?
+  price       Int
+  mrp         Int
+  quantity    Int
+  lineTotal   Int
+}
+
+model Favorite {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+model Address {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label     String  @default("Home")
+  name      String
+  phone     String
+  line      String
+  city      String
+  state     String
+  pincode   String
+  isDefault Boolean @default(false)
+  createdAt DateTime @default(now())
+}
