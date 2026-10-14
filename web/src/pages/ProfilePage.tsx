@@ -1,11 +1,14 @@
-import { useMemo } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAddresses, useCart, useOrders } from "../api/hooks";
 import { AppShellLayout } from "./pageUtils";
+import { Avatar } from "../components/Avatar";
 import { Icon } from "../components/Icon";
 import { Button } from "../components/Button";
 import { EmptyState, ErrorState } from "../components/States";
 import { useSession } from "../store/SessionContext";
+import { useToast } from "../store/ToastContext";
+import { fileToAvatarDataUrl } from "../lib/image";
 import { formatINR, formatDate, classForOrderStatus } from "../lib/format";
 import { cn } from "../lib/cn";
 
@@ -21,12 +24,47 @@ function wishlistCount(): number {
 
 export default function ProfilePage() {
   const navigate = useNavigate();
-  const { user, ready, signInAs, signOut } = useSession();
+  const { user, ready, isGuest, signInAs, signInAsGuest, signOut, updateProfile } = useSession();
   const orders = useOrders();
   const addresses = useAddresses();
   const cart = useCart();
+  const { toast } = useToast();
 
   const saved = useMemo(wishlistCount, []);
+
+  const fileRef = useRef<HTMLInputElement>(null);
+  const [savingPhoto, setSavingPhoto] = useState(false);
+  const [photoError, setPhotoError] = useState<string | null>(null);
+
+  const onPickPhoto = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = ""; // allow re-selecting the same file later
+    if (!file) return;
+    setPhotoError(null);
+    setSavingPhoto(true);
+    try {
+      const avatarUrl = await fileToAvatarDataUrl(file);
+      await updateProfile({ avatarUrl });
+      toast("Profile photo updated", "success");
+    } catch (err) {
+      setPhotoError(err instanceof Error ? err.message : "Could not update the photo.");
+    } finally {
+      setSavingPhoto(false);
+    }
+  };
+
+  const removePhoto = async () => {
+    setPhotoError(null);
+    setSavingPhoto(true);
+    try {
+      await updateProfile({ avatarUrl: null });
+      toast("Profile photo removed", "info");
+    } catch (err) {
+      setPhotoError(err instanceof Error ? err.message : "Could not remove the photo.");
+    } finally {
+      setSavingPhoto(false);
+    }
+  };
 
   if (!ready) {
     return (
@@ -42,11 +80,34 @@ export default function ProfilePage() {
   return (
     <AppShellLayout>
       <div className="px-margin md:px-margin-desktop py-space-lg flex flex-col gap-space-lg max-w-3xl mx-auto w-full">
-        {/* Profile header */}
-        <section className="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex items-center gap-3">
-          <div className="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
-            <Icon name={user?.role === "SELLER" ? "storefront" : "agriculture"} filled className="text-[32px]" />
+        {/* Profile header with profile photo */}
+        <section className="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex items-center gap-4">
+          <div className="relative shrink-0">
+            <Avatar
+              src={user?.avatarUrl}
+              name={user?.name}
+              role={user?.role}
+              size={80}
+              className="ring-4 ring-primary-fixed/70"
+            />
+            {!isGuest && (
+              <button
+                type="button"
+                onClick={() => fileRef.current?.click()}
+                disabled={savingPhoto}
+                aria-label="Change profile photo"
+                className="absolute -bottom-0.5 -right-0.5 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md ring-2 ring-surface-container-lowest active:scale-95 transition-transform disabled:opacity-60"
+              >
+                <Icon
+                  name={savingPhoto ? "progress_activity" : "photo_camera"}
+                  filled
+                  className={cn("text-[17px]", savingPhoto && "animate-spin")}
+                />
+              </button>
+            )}
+            <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={onPickPhoto} />
           </div>
+
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               <h1 className="font-headline-sm text-headline-sm font-extrabold text-on-surface">
@@ -60,6 +121,41 @@ export default function ProfilePage() {
             <p className="font-body-sm text-body-sm text-outline mt-0.5">
               {user?.shopName ?? user?.phone ?? "—"}
             </p>
+
+            {isGuest ? (
+              <Link
+                to="/login"
+                className="mt-2 inline-flex items-center gap-1 font-label-md text-label-md text-primary font-semibold hover:underline"
+              >
+                <Icon name="photo_camera" className="text-[15px]" /> Sign in to add a profile photo
+              </Link>
+            ) : (
+              <div className="mt-2 flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => fileRef.current?.click()}
+                  className="font-label-md text-label-md text-primary font-semibold hover:underline"
+                >
+                  {user?.avatarUrl ? "Change photo" : "Add photo"}
+                </button>
+                {user?.avatarUrl && (
+                  <button
+                    type="button"
+                    onClick={() => void removePhoto()}
+                    disabled={savingPhoto}
+                    className="font-label-md text-label-md text-error font-semibold hover:underline disabled:opacity-60"
+                  >
+                    Remove
+                  </button>
+                )}
+              </div>
+            )}
+
+            {photoError && (
+              <p role="alert" className="font-body-sm text-body-sm text-error mt-1.5">
+                {photoError}
+              </p>
+            )}
           </div>
         </section>
 
@@ -90,7 +186,7 @@ export default function ProfilePage() {
           </div>
           <div className="grid sm:grid-cols-2 gap-2.5">
             <button
-              onClick={() => void signInAs("CUSTOMER")}
+              onClick={() => void signInAsGuest("CUSTOMER")}
               className={cn(
                 "flex items-center gap-3 p-3 rounded-xl border-2 text-left transition-colors",
                 user?.role === "CUSTOMER" ? "border-primary bg-primary-fixed/40" : "border-outline-variant hover:border-primary/60"
@@ -120,6 +216,12 @@ export default function ProfilePage() {
               </span>
             </button>
           </div>
+          <Link
+            to="/login"
+            className="flex items-center justify-center gap-1.5 h-11 rounded-xl border border-outline-variant/60 font-title-md text-title-md font-semibold text-primary hover:bg-primary-fixed/20 transition-colors"
+          >
+            <Icon name="phone_android" className="text-[18px]" /> Sign in with mobile number
+          </Link>
           <div className="flex items-center gap-2">
             <Link to="/seller" className="flex-1">
               <Button fullWidth variant="secondary" icon="storefront">Open Seller Hub</Button>

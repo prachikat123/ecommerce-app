@@ -1,0 +1,133 @@
+{
+  "projectId": "571112288904335332",
+  "title": "AgriMarket India Platform",
+  "deviceType": "MOBILE",
+  "Last Sync Time": "2026-10-14T00:46:00Z",
+  "designSystem": {
+    "id": "01b2f14c77e64c818b9cdd067c6598ab",
+    "displayName": "KrishiBazaar Agro-Modern System"
+  },
+  "screens": {
+    "29a3951249cf47299686ed606d473da5": {
+      "id": "29a3951249cf47299686ed606d473da5",
+      "label": "KrishiBazaar - Mobile Login & Phone Verification",
+      "sourceScreen": ".stitch/designs/krishibazaar-login-29a39512.html",
+      "route": "/login",
+      "component": "web/src/pages/LoginPage.tsx",
+      "deviceType": "MOBILE",
+      "width": 780,
+      "height": 2702,
+      "canvasPosition": { "x": -10973, "y": 1070, "width": 390, "height": 1352 }
+    },
+    "fc068f4e96624bd1bf7ebd1228688451": {
+      "id": "fc068f4e96624bd1bf7ebd1228688451",
+      "label": "KrishiBazaar - Agriculture Marketplace Homepage",
+      "sourceScreen": "docs/stitch/screens/",
+      "route": "/",
+      "component": "web/src/pages/HomePage.tsx",
+      "deviceType": "MOBILE",
+      "width": 780,
+      "height": 5810,
+      "canvasPosition": { "x": -19836, "y": 1547, "width": 529, "height": 2785 }
+    },
+    "960dcc43a2ba43098c615b86dcab9c6a": {
+      "id": "960dcc43a2ba43098c615b86dcab9c6a",
+      "label": "KrishiBazaar - Product Listing & Filters",
+      "sourceScreen": "docs/stitch/screens/",
+      "route": "/products",
+      "component": "web/src/pages/ProductsPage.tsx",
+      "deviceType": "MOBILE",
+      "width": 780,
+      "height": 4070,
+      "canvasPosition": { "x": -19243, "y": 1896, "width": 390, "height": 2035 }
+    },
+    "457aa0a7f9384d3b8f6be067389a76ab": {
+      "id": "457aa0a7f9384d3b8f6be067389a76ab",
+      "label": "KrishiBazaar - Product Details",
+      "sourceScreen": "docs/stitch/screens/",
+      "route": "/product/:slug",
+      "component": "web/src/pages/ProductDetailPage.tsx",
+      "deviceType": "MOBILE",
+      "width": 780,
+      "height": 7044,
+      "canvasPosition": { "x": -18789, "y": 1191, "width": 390, "height": 3544 }
+    },
+    "c8c81bc011204b26897dbf1d600b3bb0": {
+      "id": "c8c81bc011204b26897dbf1d600b3bb0",
+      "label": "KrishiBazaar - Shopping Cart",
+      "sourceScreen": "docs/stitch/screens/",
+      "route": "/cart",
+      "component": "web/src/pages/CartPage.tsx",
+      "deviceType": "MOBILE",
+      "width": 780,
+      "height": 4850,
+      "canvasPosition": { "x": -18335, "y": 1431, "width": 390, "height": 2439 }
+    },
+    "9e71e004386f481fbda257e09c2f1e20": {
+      "id": "9e71e004386f481fbda257e09c2f1e20",
+      "label": "KrishiBazaar - Multi-Step Checkout",
+      "sourceScreen": "docs/stitch/screens/",
+      "route": "/checkout",
+      "component": "web/src/pages/CheckoutPage.tsx",
+      "deviceType": "MOBILE",
+      "width": 780,
+      "height": 4410,
+      "canvasPosition": { "x": -17881, "y": 1426, "width": 390, "height": 2205 }
+    },
+    "7586791bbcac4e8d9b2dc9e0a885b9a2": {
+      "id": "7586791bbcac4e8d9b2dc9e0a885b9a2",
+      "label": "KrishiBazaar - Order Confirmation & Success",
+      "sourceScreen": "docs/stitch/screens/",
+      "route": "/order/:id",
+      "component": "web/src/pages/OrderSuccessPage.tsx",
+      "deviceType": "MOBILE",
+      "width": 780,
+      "height": 3526,
+      "canvasPosition": { "x": -17427, "y": 1487, "width": 390, "height": 1790 }
+    },
+    "f61658eacbfb4296bf631632794d0683": {
+      "id": "f61658eacbfb4296bf631632794d0683",
+      "label": "KrishiBazaar - Farmer Profile",
+      "sourceScreen": "docs/stitch/screens/",
+      "route": "/farmers/:id",
+      "component": "web/src/pages/FarmerProfilePage.tsx",
+      "deviceType": "MOBILE",
+      "width": 780,
+      "height": 7304,
+      "canvasPosition": { "x": -11917, "y": -80, "width": 390, "height": 3652 }
+    },
+    "0c29bda133cb4ad2b16cdd78e90bda55": {
+      "id": "0c29bda133cb4ad2b16cdd78e90bda55",
+      "label": "KrishiBazaar - Farmer & Seller Dashboard",
+      "sourceScreen": "docs/stitch/screens/",
+      "route": "/seller",
+      "component": "web/src/pages/SellerDashboardPage.tsx",
+      "deviceType": "DESKTOP",
+      "width": 2560,
+      "height": 4194,
+      "canvasPosition": { "x": -16973, "y": 1174, "width": 1280, "height": 2097 }
+    },
+    "18a03eaaceda4754a62fa50a04620c83": {
+      "id": "18a03eaaceda4754a62fa50a04620c83",
+      "label": "KrishiBazaar - Add Product Form (Farmer & Seller)",
+      "sourceScreen": "docs/stitch/screens/",
+      "route": "/seller/products/new",
+      "component": "web/src/pages/AddProductPage.tsx",
+      "deviceType": "DESKTOP",
+      "width": 2560,
+      "height": 5384,
+      "canvasPosition": { "x": -15629, "y": 1047, "width": 1280, "height": 2692 }
+    },
+    "9eb4d0ee4ad84932b0ff1ac32ab9b56b": {
+      "id": "9eb4d0ee4ad84932b0ff1ac32ab9b56b",
+      "label": "KrishiBazaar - Orders Management Dashboard",
+      "sourceScreen": "docs/stitch/screens/",
+      "route": "/seller/orders",
+      "component": "web/src/pages/SellerOrdersPage.tsx",
+      "deviceType": "DESKTOP",
+      "width": 2560,
+      "height": 4416,
+      "canvasPosition": { "x": -14285, "y": 1222, "width": 1280, "height": 2208 }
+    }
+  }
+}
