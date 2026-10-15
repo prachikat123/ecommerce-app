@@ -54,13 +54,27 @@ export const checkoutSchema = z.object({
   notes: z.string().trim().max(300).optional()
 });
 
+const phoneSchema = z
+  .string()
+  .trim()
+  .regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit Indian mobile number");
+
 export const sessionSchema = z.object({
   name: z.string().trim().min(2).max(80).optional(),
-  phone: z
-    .string()
-    .trim()
-    .regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit Indian mobile number"),
+  phone: phoneSchema,
   role: z.enum(["CUSTOMER", "SELLER"]).default("CUSTOMER")
+});
+
+/** Request a one-time passcode for phone sign-in. */
+export const otpRequestSchema = z.object({
+  phone: phoneSchema,
+  role: z.enum(["CUSTOMER", "SELLER"]).default("CUSTOMER"),
+  name: z.string().trim().min(2).max(80).optional()
+});
+
+/** Submit a one-time passcode to complete sign-in. */
+export const otpVerifySchema = otpRequestSchema.extend({
+  code: z.string().trim().regex(/^\d{6}$/, "Enter the 6-digit code")
 });
 
 const DATA_IMAGE = /^data:image\/(png|jpe?g|webp);base64,[A-Za-z0-9+/=]+$/;

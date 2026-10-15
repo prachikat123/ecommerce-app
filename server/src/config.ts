@@ -90,7 +90,9 @@ export const config = {
    */
   otpDevBypass: readEnv("OTP_DEV_BYPASS") ? readEnv("OTP_DEV_BYPASS") === "true" : !isProduction,
   /** The code accepted while `otpDevBypass` is on. */
-  otpDevCode: readEnv("OTP_DEV_CODE") ?? "123456"
+  otpDevCode: readEnv("OTP_DEV_CODE") ?? "123456",
+  /** Outbound SMS provider for one-time passcodes. */
+  smsProvider: readEnv("SMS_PROVIDER") ?? "console"
 } as const;
 
 export type Config = typeof config;

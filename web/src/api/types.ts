@@ -162,6 +162,16 @@ export interface SessionResponse {
   cartCount: number;
 }
 
+export interface OtpRequestResponse {
+  /** How long the issued code stays valid. */
+  expiresInSeconds: number;
+  /**
+   * Present only outside production (`OTP_DEV_BYPASS`): the generated code, so
+   * the UI can pre-fill it when no SMS provider is configured.
+   */
+  devCode?: string;
+}
+
 export interface SellerStats {
   productCount: number;
   lowStock: number;

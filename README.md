@@ -78,10 +78,18 @@ check out, but two actions require a real sign-in and bounce guests to `/login`
 - **Publish a product** — every `/seller/*` page (also requires the seller role).
 
 Sign-in entry points: the **Sign in** control in the header (shown to guests),
-**Profile → Sign in with mobile number**, or the seller gate. On `/login` you can
-either verify a 10-digit mobile number (any 6-digit OTP in demo mode) or use the
-one-tap **Dealer / FPO Portal** (a real sign-in) / **Explore Market as Guest
-Buyer** (stays a guest).
+**Profile → Sign in with mobile number**, or the seller gate. On `/login` you
+verify a 10-digit mobile number with a one-time passcode, or use the one-tap
+**Dealer / FPO Portal** (a real sign-in) / **Explore Market as Guest Buyer**
+(stays a guest).
+
+The passcode is a real, server-verified code: `POST /api/auth/otp/request` issues
+and sends it, then `POST /api/auth/otp/verify` checks it and starts the session.
+Codes are stored hashed, are single-use, expire after `OTP_EXPIRY_SECONDS`, and
+are invalidated after `OTP_MAX_ATTEMPTS` wrong guesses. Outside production the
+API returns the code as `devCode` and the login screen pre-fills it, so the flow
+works without an SMS provider; the SMS seam lives in
+`server/src/services/smsService.ts` and defaults to logging the message.
 
 A plain sign-in then lands on the **profile page** (`/profile`); the *Dealer /
 FPO Portal* opens the Seller Hub, and gated actions still return to the page
@@ -169,7 +177,9 @@ E-commerce/
 | Method | Endpoint | Auth | Purpose |
 | --- | --- | --- | --- |
 | `GET` | `/api/health` | — | Service liveness |
-| `POST` | `/api/auth/session` | — | Create/sign in a user by phone (`{ phone, role }`) |
+| `POST` | `/api/auth/otp/request` | — | Send a one-time passcode (`{ phone, role, name? }`) |
+| `POST` | `/api/auth/otp/verify` | — | Verify the code and start a session (`{ phone, code, role, name? }`) |
+| `POST` | `/api/auth/session` | — | Demo/guest bootstrap: create or sign in a user by phone, no verification (`{ phone, role }`) |
 | `GET` | `/api/auth/me` | ✅ | Current session user (includes `avatarUrl`) |
 | `PATCH` | `/api/auth/me` | ✅ | Update display name and/or profile photo (`{ name?, avatarUrl }`, `null` clears) |
 | `GET` | `/api/categories` | — | Categories with product counts |
@@ -274,6 +284,7 @@ CORS_ORIGIN="http://localhost:5173"
 | `OTP_DEV_CODE` | `123456` | Code accepted while the bypass is on |
 | `OTP_EXPIRY_SECONDS` | `300` | How long a code stays valid |
 | `OTP_MAX_ATTEMPTS` | `5` | Wrong guesses before a code is invalidated |
+| `SMS_PROVIDER` | `console` | Outbound SMS provider (`console` just logs the code) |
 
 `web/.env` (optional — see `web/.env.example`):
 
@@ -366,7 +377,8 @@ exact origin and redeploy.
 - [ ] Strong random `JWT_SECRET` (never the development default)
 - [ ] `CORS_ORIGIN` set to the real domain, not `*`
 - [ ] `VITE_API_URL` set at web build time
-- [ ] `OTP_DEV_BYPASS` disabled, with a real SMS provider wired in
+- [ ] `OTP_DEV_BYPASS` disabled (the config guard enforces this in production)
+- [ ] `SMS_PROVIDER` set to a real provider with credentials, so passcodes are delivered
 - [ ] Automated database backups, with a restore tested once
 - [ ] Error tracking (e.g. Sentry) and an uptime check on `/api/health`
 - [ ] CI green on `main` (`.github/workflows/ci.yml`)

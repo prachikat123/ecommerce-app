@@ -1,7 +1,12 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { apiRequest, getToken, setToken } from "../api/client";
-import type { SessionResponse, SessionUser, UpdateProfileInput } from "../api/types";
+import type {
+  OtpRequestResponse,
+  SessionResponse,
+  SessionUser,
+  UpdateProfileInput
+} from "../api/types";
 
 export const DEMO_CUSTOMER_PHONE = "9000000000";
 export const DEMO_SELLER_PHONE = "9800000001";
@@ -39,6 +44,19 @@ interface SessionContextValue {
   signInAs: (role: "CUSTOMER" | "SELLER") => Promise<void>;
   signInAsGuest: (role: "CUSTOMER" | "SELLER") => Promise<void>;
   signInWith: (phone: string, role: "CUSTOMER" | "SELLER") => Promise<SessionUser>;
+  /** Send a one-time passcode to `phone`. */
+  requestOtp: (
+    phone: string,
+    role: "CUSTOMER" | "SELLER",
+    name?: string
+  ) => Promise<OtpRequestResponse>;
+  /** Complete sign-in with the code that was sent to `phone`. */
+  signInWithOtp: (
+    phone: string,
+    code: string,
+    role: "CUSTOMER" | "SELLER",
+    name?: string
+  ) => Promise<SessionUser>;
   updateProfile: (input: UpdateProfileInput) => Promise<SessionUser>;
   reload: () => Promise<void>;
   signOut: () => void;
@@ -63,6 +81,36 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       setToken(res.token);
       setUser(res.user);
       setError(null);
+      await qc.invalidateQueries();
+      return res.user;
+    },
+    [qc]
+  );
+
+  /** Sends a one-time passcode for the given phone number. */
+  const requestOtp = useCallback(
+    async (phone: string, role: "CUSTOMER" | "SELLER", name?: string) =>
+      apiRequest<OtpRequestResponse>("/auth/otp/request", {
+        method: "POST",
+        auth: false,
+        body: name ? { phone, role, name } : { phone, role }
+      }),
+    []
+  );
+
+  /** Verifies a one-time passcode and establishes the session. */
+  const signInWithOtp = useCallback(
+    async (phone: string, code: string, role: "CUSTOMER" | "SELLER", name?: string) => {
+      const res = await apiRequest<SessionResponse>("/auth/otp/verify", {
+        method: "POST",
+        auth: false,
+        body: name ? { phone, code, role, name } : { phone, code, role }
+      });
+      setToken(res.token);
+      setUser(res.user);
+      setError(null);
+      writeGuest(false);
+      setIsGuest(false);
       await qc.invalidateQueries();
       return res.user;
     },
@@ -135,6 +183,8 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         setIsGuest(false);
         return nextUser;
       },
+      requestOtp,
+      signInWithOtp,
       updateProfile: async (input) => {
         const nextUser = await apiRequest<SessionUser>("/auth/me", { method: "PATCH", body: input });
         setUser(nextUser);
@@ -150,7 +200,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         void bootstrap();
       }
     }),
-    [user, ready, isGuest, error, startSession, bootstrap, qc]
+    [user, ready, isGuest, error, startSession, requestOtp, signInWithOtp, bootstrap, qc]
   );
 
   return <SessionContext.Provider value={value}>{children}</SessionContext.Provider>;

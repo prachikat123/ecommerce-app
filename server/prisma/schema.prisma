@@ -173,3 +173,20 @@ model Address {
   isDefault Boolean @default(false)
   createdAt DateTime @default(now())
 }
+
+/// A one-time passcode issued for phone sign-in.
+/// Codes are stored as an HMAC (never plaintext), are single-use, expire after
+/// a short window, and are invalidated after too many wrong attempts.
+model OtpCode {
+  id         String    @id @default(cuid())
+  phone      String
+  codeHash   String
+  role       String    @default("CUSTOMER")
+  name       String?
+  attempts   Int       @default(0)
+  expiresAt  DateTime
+  consumedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([phone, createdAt])
+}

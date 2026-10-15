@@ -26,8 +26,8 @@ export interface UseLoginFlowResult {
   setRole: (role: LoginRole) => void;
   setPhone: (value: string) => void;
   setOtp: (value: string) => void;
-  requestOtp: () => void;
-  resendOtp: () => void;
+  requestOtp: () => Promise<void>;
+  resendOtp: () => Promise<void>;
   backToPhone: () => void;
   verify: () => Promise<SessionUser | null>;
 }
@@ -35,12 +35,13 @@ export interface UseLoginFlowResult {
 /**
  * Drives the phone → OTP sign-in flow shown on the KrishiBazaar login screen.
  *
- * The OTP step is a client-side simulation (any 6 digits pass) because the
- * demo backend authenticates by phone only — the final action is a real
- * `POST /api/auth/session` through the shared session store.
+ * A one-time passcode is requested from the API and verified server-side
+ * (`POST /api/auth/otp/request` → `POST /api/auth/otp/verify`). Outside
+ * production the API echoes the generated code back as `devCode`, which is
+ * pre-filled here so the flow stays testable without an SMS provider.
  */
 export function useLoginFlow(): UseLoginFlowResult {
-  const { signInWith } = useSession();
+  const { requestOtp: sendOtp, signInWithOtp } = useSession();
   const [step, setStep] = useState<LoginStep>("PHONE");
   const [role, setRole] = useState<LoginRole>("CUSTOMER");
   const [phone, setPhoneState] = useState("");
@@ -67,22 +68,40 @@ export function useLoginFlow(): UseLoginFlowResult {
     setError(null);
   }, []);
 
-  const requestOtp = useCallback(() => {
+  const requestOtp = useCallback(async () => {
     if (!PHONE_PATTERN.test(phone)) {
       setError("Enter a valid 10-digit mobile number starting with 6-9");
       return;
     }
     setError(null);
-    setOtpState("");
-    setSecondsLeft(RESEND_SECONDS);
-    setStep("OTP");
-  }, [phone]);
+    setSubmitting(true);
+    try {
+      const res = await sendOtp(phone, role);
+      // Pre-filled in development so the flow works without an SMS provider.
+      setOtpState(res.devCode ?? "");
+      setSecondsLeft(RESEND_SECONDS);
+      setStep("OTP");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not send the code. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  }, [phone, role, sendOtp]);
 
-  const resendOtp = useCallback(() => {
-    setOtpState("");
+  const resendOtp = useCallback(async () => {
+    if (!PHONE_PATTERN.test(phone)) return;
     setError(null);
-    setSecondsLeft(RESEND_SECONDS);
-  }, []);
+    setSubmitting(true);
+    try {
+      const res = await sendOtp(phone, role);
+      setOtpState(res.devCode ?? "");
+      setSecondsLeft(RESEND_SECONDS);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not resend the code. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  }, [phone, role, sendOtp]);
 
   const backToPhone = useCallback(() => {
     setStep("PHONE");
@@ -99,14 +118,14 @@ export function useLoginFlow(): UseLoginFlowResult {
     setSubmitting(true);
     setError(null);
     try {
-      return await signInWith(phone, role);
+      return await signInWithOtp(phone, otp, role);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not sign in. Please try again.");
       return null;
     } finally {
       setSubmitting(false);
     }
-  }, [otp, phone, role, signInWith]);
+  }, [otp, phone, role, signInWithOtp]);
 
   return useMemo<UseLoginFlowResult>(
     () => ({
