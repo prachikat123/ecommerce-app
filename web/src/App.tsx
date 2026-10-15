@@ -12,10 +12,13 @@ import AddProductPage from "./pages/AddProductPage";
 import SellerOrdersPage from "./pages/SellerOrdersPage";
 import ProfilePage from "./pages/ProfilePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import LoginPage from "./pages/LoginPage";
 
 export default function App() {
   return (
     <Routes>
+      {/* Standalone, full-screen auth surface (no storefront chrome). */}
+      <Route path="/login" element={<LoginPage />} />
       <Route element={<AppShell />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />

@@ -3,10 +3,32 @@ import { asyncHandler } from "../middleware/asyncHandler.js";
 import { requireAuth, signToken } from "../middleware/auth.js";
 import { validate } from "../middleware/validate.js";
 import { prisma } from "../prisma.js";
-import { sessionSchema } from "../schemas/index.js";
+import { sessionSchema, updateProfileSchema } from "../schemas/index.js";
 import { getCart } from "../services/cartService.js";
 
 const router = Router();
+
+interface SessionUserRecord {
+  id: string;
+  name: string;
+  phone: string;
+  role: string;
+  avatarUrl: string | null;
+  seller?: { id: string; shopName: string } | null;
+}
+
+/** The session user shape shared by /auth/session, GET /auth/me and PATCH /auth/me. */
+function toSessionUser(user: SessionUserRecord) {
+  return {
+    id: user.id,
+    name: user.name,
+    phone: user.phone,
+    role: user.role,
+    avatarUrl: user.avatarUrl,
+    sellerId: user.seller?.id ?? null,
+    shopName: user.seller?.shopName ?? null
+  };
+}
 
 /**
  * POST /api/auth/session
@@ -78,14 +100,7 @@ router.post(
 
     res.json({
       token,
-      user: {
-        id: user.id,
-        name: user.name,
-        phone: user.phone,
-        role: user.role,
-        sellerId: user.seller?.id ?? null,
-        shopName: user.seller?.shopName ?? null
-      },
+      user: toSessionUser(user),
       cartCount: cart.itemCount
     });
   })
@@ -104,14 +119,27 @@ router.get(
       res.status(401).json({ error: { message: "Session no longer valid", code: "UNAUTHORIZED" } });
       return;
     }
-    res.json({
-      id: user.id,
-      name: user.name,
-      phone: user.phone,
-      role: user.role,
-      sellerId: user.seller?.id ?? null,
-      shopName: user.seller?.shopName ?? null
+    res.json(toSessionUser(user));
+  })
+);
+
+// PATCH /api/auth/me — update the signed-in user's display name and/or photo.
+router.patch(
+  "/me",
+  requireAuth,
+  validate(updateProfileSchema),
+  asyncHandler(async (req, res) => {
+    const { name, avatarUrl } = req.body as { name?: string; avatarUrl?: string | null };
+    const data: { name?: string; avatarUrl?: string | null } = {};
+    if (name !== undefined) data.name = name;
+    if (avatarUrl !== undefined) data.avatarUrl = avatarUrl;
+
+    const user = await prisma.user.update({
+      where: { id: req.auth!.userId },
+      data,
+      include: { seller: true }
     });
+    res.json(toSessionUser(user));
   })
 );
 

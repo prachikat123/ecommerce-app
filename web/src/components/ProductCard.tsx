@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import type { Product } from "../api/types";
 import { useAddToCart } from "../api/hooks";
+import { useAuthGate } from "../hooks/useAuthGate";
 import { useToast } from "../store/ToastContext";
 import { cn } from "../lib/cn";
 import { Icon } from "./Icon";
@@ -24,6 +25,8 @@ function readWishlist(): string[] {
 export function FavoriteButton({ productId }: { productId: string }) {
   const [saved, setSaved] = useState(() => readWishlist().includes(productId));
   const { toast } = useToast();
+  const requireLogin = useAuthGate();
+  const location = useLocation();
 
   useEffect(() => {
     setSaved(readWishlist().includes(productId));
@@ -33,13 +36,15 @@ export function FavoriteButton({ productId }: { productId: string }) {
     (e: React.MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
+      // Wishlist saves require a real sign-in (guests are bounced to /login).
+      if (!requireLogin(location.pathname)) return;
       const list = readWishlist();
       const next = list.includes(productId) ? list.filter((id) => id !== productId) : [...list, productId];
       localStorage.setItem(WISHLIST_KEY, JSON.stringify(next));
       setSaved(next.includes(productId));
       toast(next.includes(productId) ? "Saved to wishlist" : "Removed from wishlist", "info");
     },
-    [productId, toast]
+    [productId, toast, requireLogin, location.pathname]
   );
 
   return (

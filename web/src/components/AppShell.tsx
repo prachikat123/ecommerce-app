@@ -3,6 +3,7 @@ import { useCart } from "../api/hooks";
 import { useSession } from "../store/SessionContext";
 import { cn } from "../lib/cn";
 import { Icon } from "./Icon";
+import { Avatar } from "./Avatar";
 
 function CartCountBadge() {
   const { data } = useCart();
@@ -24,7 +25,7 @@ const bottomNav = [
 ];
 
 export function AppShell() {
-  const { user } = useSession();
+  const { user, isGuest } = useSession();
   const location = useLocation();
 
   return (
@@ -57,10 +58,43 @@ export function AppShell() {
               Nashik, Maharashtra — 422003
             </span>
             {user && (
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">
-                <Icon name="verified" filled className="text-[14px]" />
-                {user.role === "SELLER" ? user.shopName ?? "Seller" : "Kisan Verified"}
-              </span>
+              <>
+                <Link
+                  to="/profile"
+                  aria-label="Your profile"
+                  className="hidden sm:inline-flex items-center gap-2 pl-1 pr-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold hover:brightness-105 transition"
+                >
+                  <Avatar src={user.avatarUrl} name={user.name} role={user.role} size={26} />
+                  {user.role === "SELLER" ? user.shopName ?? "Seller" : "Kisan Verified"}
+                </Link>
+                <Link to="/profile" aria-label="Your profile" className="sm:hidden">
+                  <Avatar
+                    src={user.avatarUrl}
+                    name={user.name}
+                    role={user.role}
+                    size={34}
+                    className="ring-2 ring-primary-fixed/70"
+                  />
+                </Link>
+              </>
+            )}
+            {isGuest && (
+              <>
+                <Link
+                  to="/login"
+                  aria-label="Sign in"
+                  className="hidden sm:inline-flex items-center gap-1.5 h-10 px-3 rounded-xl border border-outline-variant/60 text-primary font-title-md text-[13px] font-semibold hover:bg-primary-fixed/20 transition-colors"
+                >
+                  <Icon name="login" className="text-[18px]" /> Sign in
+                </Link>
+                <Link
+                  to="/login"
+                  aria-label="Sign in"
+                  className="sm:hidden w-10 h-10 rounded-xl flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors"
+                >
+                  <Icon name="login" className="text-[22px]" />
+                </Link>
+              </>
             )}
             <Link
               to="/cart"

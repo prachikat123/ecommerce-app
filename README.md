@@ -68,6 +68,35 @@ login wall. Switch roles any time from **Profile → Demo Accounts**.
 Open **Seller Hub** (`/seller`) to manage products and orders. If the current
 session is a buyer, the seller pages offer a one-tap "Continue as Demo Seller".
 
+### Sign-in & gated actions
+
+The auto-created demo session is a **guest**: you can browse, build a cart and
+check out, but two actions require a real sign-in and bounce guests to `/login`
+(remembering where they came from):
+
+- **Save to wishlist** — the heart button on product cards / product pages.
+- **Publish a product** — every `/seller/*` page (also requires the seller role).
+
+Sign-in entry points: the **Sign in** control in the header (shown to guests),
+**Profile → Sign in with mobile number**, or the seller gate. On `/login` you can
+either verify a 10-digit mobile number (any 6-digit OTP in demo mode) or use the
+one-tap **Dealer / FPO Portal** (a real sign-in) / **Explore Market as Guest
+Buyer** (stays a guest).
+
+A plain sign-in then lands on the **profile page** (`/profile`); the *Dealer /
+FPO Portal* opens the Seller Hub, and gated actions still return to the page
+that was blocked.
+
+### Profile photo
+
+Signed-in users can set a **profile photo** from the profile page — tap the
+camera badge (or *Add / Change photo*) and pick an image. The browser centre-crops
+and downscales it to a 256 px JPEG, then saves it to the user record via
+`PATCH /api/auth/me`, so it persists across reloads and devices. The photo (or
+the user's initials as a fallback) also appears at the top-right of the storefront
+header. *Remove* clears it. Guests only see a "Sign in to add a profile photo"
+prompt.
+
 ---
 
 ## 3. What's implemented
@@ -141,7 +170,8 @@ E-commerce/
 | --- | --- | --- | --- |
 | `GET` | `/api/health` | — | Service liveness |
 | `POST` | `/api/auth/session` | — | Create/sign in a user by phone (`{ phone, role }`) |
-| `GET` | `/api/auth/me` | ✅ | Current session user |
+| `GET` | `/api/auth/me` | ✅ | Current session user (includes `avatarUrl`) |
+| `PATCH` | `/api/auth/me` | ✅ | Update display name and/or profile photo (`{ name?, avatarUrl }`, `null` clears) |
 | `GET` | `/api/categories` | — | Categories with product counts |
 | `GET` | `/api/products` | — | Search / filter / sort / paginate |
 | `GET` | `/api/products/:idOrSlug` | — | Single product |
@@ -169,8 +199,8 @@ E-commerce/
 
 ```bash
 npm test                      # both suites (root)
-npm --prefix server test      # 45 API tests
-npm --prefix web test         # 13 UI/unit tests
+npm --prefix server test      # 48 API tests
+npm --prefix web test         # 20 UI/unit tests
 
 npm --prefix web run typecheck
 npm --prefix web run build
@@ -196,22 +226,27 @@ motion) is captured from the original Stitch project in
 > `checkout.html`, `order-confirmation.html`, `farmer-profile.html`,
 > `seller-dashboard.html`, `add-product.html`, `orders-management.html`). They are
 > the exact exports from the Stitch project and are used as the source of truth
-> when tuning each page.
+> when tuning each page. The **login screen** was generated later and exported to
+> [`.stitch/designs/krishibazaar-login-29a39512.html`](.stitch/designs/)
+> (Sync/CSS metadata lives in [`.stitch/metadata.json`](.stitch/metadata.json) and
+> [`.stitch/style-guide.json`](.stitch/style-guide.json); the design tokens are
+> byte-identical to `web/tailwind.config.js`).
 
 ### Stitch reference screens
 
-| File (`docs/stitch/screens/`) | Page |
+| File | Page |
 | --- | --- |
-| `homepage.html` | Home (`/`) |
-| `product-listing.html` | Catalog (`/products`) |
-| `product-details.html` | Product detail (`/product/:slug`) |
-| `cart.html` | Cart (`/cart`) |
-| `checkout.html` | Checkout (`/checkout`) |
-| `order-confirmation.html` | Order success (`/order/:id`) |
-| `farmer-profile.html` | Dealer storefront (`/farmers/:id`) |
-| `seller-dashboard.html` | Seller hub (`/seller`) |
-| `add-product.html` | New listing (`/seller/products/new`) |
-| `orders-management.html` | Order board (`/seller/orders`) |
+| `docs/stitch/screens/homepage.html` | Home (`/`) |
+| `docs/stitch/screens/product-listing.html` | Catalog (`/products`) |
+| `docs/stitch/screens/product-details.html` | Product detail (`/product/:slug`) |
+| `docs/stitch/screens/cart.html` | Cart (`/cart`) |
+| `docs/stitch/screens/checkout.html` | Checkout (`/checkout`) |
+| `docs/stitch/screens/order-confirmation.html` | Order success (`/order/:id`) |
+| `docs/stitch/screens/farmer-profile.html` | Dealer storefront (`/farmers/:id`) |
+| `docs/stitch/screens/seller-dashboard.html` | Seller hub (`/seller`) |
+| `docs/stitch/screens/add-product.html` | New listing (`/seller/products/new`) |
+| `docs/stitch/screens/orders-management.html` | Order board (`/seller/orders`) |
+| `.stitch/designs/krishibazaar-login-29a39512.html` | Login & phone verification (`/login`) |
 
 ---
 

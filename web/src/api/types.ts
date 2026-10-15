@@ -146,8 +146,14 @@ export interface SessionUser {
   name: string;
   phone: string;
   role: string;
+  avatarUrl: string | null;
   sellerId: string | null;
   shopName: string | null;
+}
+
+export interface UpdateProfileInput {
+  name?: string;
+  avatarUrl?: string | null;
 }
 
 export interface SessionResponse {

@@ -16,6 +16,7 @@ model User {
   name      String
   phone     String     @unique
   role      String     @default("CUSTOMER") // CUSTOMER | SELLER | ADMIN
+  avatarUrl String?    // data URL or remote URL for the profile photo
   village   String?
   district  String?
   state     String?

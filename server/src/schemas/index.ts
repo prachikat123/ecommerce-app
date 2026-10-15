@@ -63,6 +63,24 @@ export const sessionSchema = z.object({
   role: z.enum(["CUSTOMER", "SELLER"]).default("CUSTOMER")
 });
 
+const DATA_IMAGE = /^data:image\/(png|jpe?g|webp);base64,[A-Za-z0-9+/=]+$/;
+
+export const updateProfileSchema = z
+  .object({
+    name: z.string().trim().min(2, "Name is too short").max(80).optional(),
+    // Accept a small uploaded data URL, a remote URL, or null to clear the photo.
+    avatarUrl: z
+      .union([
+        z.string().trim().url("Provide a valid image URL").max(500),
+        z.string().trim().max(900_000).regex(DATA_IMAGE, "Provide a valid image file")
+      ])
+      .nullable()
+      .optional()
+  })
+  .refine((value) => value.name !== undefined || value.avatarUrl !== undefined, {
+    message: "Nothing to update"
+  });
+
 export const createProductSchema = z.object({
   name: z.string().trim().min(3, "Product name is too short").max(120),
   brand: z.string().trim().min(2).max(60),
