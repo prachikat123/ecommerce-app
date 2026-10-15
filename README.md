@@ -200,7 +200,7 @@ E-commerce/
 ```bash
 npm test                      # both suites (root)
 npm --prefix server test      # 48 API tests
-npm --prefix web test         # 20 UI/unit tests
+npm --prefix web test         # 21 UI/unit tests
 
 npm --prefix web run typecheck
 npm --prefix web run build
@@ -226,11 +226,11 @@ motion) is captured from the original Stitch project in
 > `checkout.html`, `order-confirmation.html`, `farmer-profile.html`,
 > `seller-dashboard.html`, `add-product.html`, `orders-management.html`). They are
 > the exact exports from the Stitch project and are used as the source of truth
-> when tuning each page. The **login screen** was generated later and exported to
-> [`.stitch/designs/krishibazaar-login-29a39512.html`](.stitch/designs/)
-> (Sync/CSS metadata lives in [`.stitch/metadata.json`](.stitch/metadata.json) and
-> [`.stitch/style-guide.json`](.stitch/style-guide.json); the design tokens are
-> byte-identical to `web/tailwind.config.js`).
+> when tuning each page. The **login screen** was generated later from the same
+> Stitch project; its exported artifacts (HTML/PNG, Sync metadata, style guide)
+> are build output, so they are gitignored and live locally under `.stitch/`.
+> The design tokens are byte-identical to `web/tailwind.config.js`, and the
+> screen itself is implemented in `web/src/pages/LoginPage.tsx`.
 
 ### Stitch reference screens
 
@@ -246,13 +246,13 @@ motion) is captured from the original Stitch project in
 | `docs/stitch/screens/seller-dashboard.html` | Seller hub (`/seller`) |
 | `docs/stitch/screens/add-product.html` | New listing (`/seller/products/new`) |
 | `docs/stitch/screens/orders-management.html` | Order board (`/seller/orders`) |
-| `.stitch/designs/krishibazaar-login-29a39512.html` | Login & phone verification (`/login`) |
+| *(generated locally, gitignored)* | Login & phone verification (`/login`) |
 
 ---
 
 ## 8. Environment variables
 
-`server/.env` (created for you, safe defaults):
+`server/.env` (created for you, safe defaults — see `server/.env.example` for the full list):
 
 ```env
 DATABASE_URL="file:./dev.db"
@@ -260,3 +260,113 @@ JWT_SECRET="change-me-in-production"
 PORT=4000
 CORS_ORIGIN="http://localhost:5173"
 ```
+
+| Variable | Default | Notes |
+| --- | --- | --- |
+| `DATABASE_URL` | `file:./dev.db` | SQLite locally; `postgresql://…` in production |
+| `PORT` | `4000` | API port |
+| `NODE_ENV` | `development` | `production` enables the fail-fast config checks |
+| `JWT_SECRET` | dev placeholder | **Required** in production; must not be the dev default |
+| `JWT_EXPIRES_IN` | `30d` | Token lifetime |
+| `CORS_ORIGIN` | `*` | Comma-separated allow-list; must be explicit in production |
+| `AUTH_RATE_LIMIT` | `10` | Sign-in attempts per IP per 10 minutes |
+| `OTP_DEV_BYPASS` | on outside prod | Accept `OTP_DEV_CODE` instead of sending an SMS |
+| `OTP_DEV_CODE` | `123456` | Code accepted while the bypass is on |
+| `OTP_EXPIRY_SECONDS` | `300` | How long a code stays valid |
+| `OTP_MAX_ATTEMPTS` | `5` | Wrong guesses before a code is invalidated |
+
+`web/.env` (optional — see `web/.env.example`):
+
+| Variable | Default | Notes |
+| --- | --- | --- |
+| `VITE_API_URL` | `/api` | Leave unset in dev (Vite proxies `/api`). **Set it in production.** |
+
+### Fail-fast configuration
+
+In production the API refuses to start if `JWT_SECRET` is missing or still the
+development default, if `DATABASE_URL` is missing, or if `CORS_ORIGIN` is `*`.
+A misconfigured deploy becomes an immediate, obvious crash rather than a
+silently insecure one:
+
+```
+Invalid production environment configuration:
+  - JWT_SECRET must not be the development default
+  - CORS_ORIGIN must be an explicit origin (not "*")
+```
+
+---
+
+## 9. Going to production
+
+The API ships with `helmet` security headers and rate limiting (300 req/min per
+IP overall, `AUTH_RATE_LIMIT` on sign-in), and a single shared error shape.
+
+### Build and run
+
+```bash
+npm run build          # server (tsc) + web (vite)
+npm --prefix server start   # runs the compiled API (dist/src/index.js)
+```
+
+Container image:
+
+```bash
+docker build -f server/Dockerfile -t krishibazaar-api ./server
+docker run -p 4000:4000 --env-file server/.env krishibazaar-api
+```
+
+### Step 1 — Move to PostgreSQL
+
+SQLite is ideal for local development but is a single-writer, file-based
+database. For production:
+
+1. Provision PostgreSQL (Neon, Supabase, Render, RDS …).
+2. In `server/prisma/schema.prisma`, change `provider = "sqlite"` to `"postgresql"`.
+3. Point `DATABASE_URL` at the new instance.
+4. Baseline and apply migrations:
+
+   ```bash
+   npx prisma migrate dev --name init    # first time only
+   npx prisma migrate deploy             # every deploy after
+   npx prisma db seed
+   ```
+
+For local production-parity testing, `docker compose up -d db` starts a
+Postgres instance (see `docker-compose.yml`).
+
+### Step 2 — Deploy the API
+
+Host `server/` as a Node web service (Render, Railway, Fly.io, or the Dockerfile
+on any container host):
+
+- **Build:** `npm ci && npx prisma generate && npm run build`
+- **Start:** `npx prisma migrate deploy && node dist/src/index.js`
+- **Health check:** `/api/health`
+- **Env:** `NODE_ENV=production`, `DATABASE_URL`, `JWT_SECRET`, `CORS_ORIGIN`
+
+### Step 3 — Deploy the web app
+
+Host `web/` as a static site (Vercel, Netlify, Cloudflare Pages):
+
+- **Build:** `npm run build` — **Output:** `dist`
+- **Env:** `VITE_API_URL=https://your-api-host/api`
+
+`web/vercel.json` adds the SPA rewrite so React Router deep links resolve. There
+is **no `/api` proxy in production**; `VITE_API_URL` is what connects the
+frontend to the API.
+
+### Step 4 — Domain and CORS
+
+Point your domain at the web host, then set `CORS_ORIGIN` on the API to that
+exact origin and redeploy.
+
+### Production checklist
+
+- [ ] PostgreSQL provisioned; schema applied with `prisma migrate deploy`
+- [ ] Strong random `JWT_SECRET` (never the development default)
+- [ ] `CORS_ORIGIN` set to the real domain, not `*`
+- [ ] `VITE_API_URL` set at web build time
+- [ ] `OTP_DEV_BYPASS` disabled, with a real SMS provider wired in
+- [ ] Automated database backups, with a restore tested once
+- [ ] Error tracking (e.g. Sentry) and an uptime check on `/api/health`
+- [ ] CI green on `main` (`.github/workflows/ci.yml`)

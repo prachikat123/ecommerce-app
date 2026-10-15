@@ -42,6 +42,20 @@ describe("apiRequest", () => {
     expect((init.headers as Record<string, string>).Authorization).toBe("Bearer test-token");
   });
 
+  it("prefixes requests with the /api base path", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({ ok: true }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" }
+      })
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await apiRequest("/health");
+    const [url] = fetchMock.mock.calls[0];
+    expect(url).toBe("/api/health");
+  });
+
   it("throws an ApiClientError carrying the server error shape", async () => {
     vi.stubGlobal(
       "fetch",

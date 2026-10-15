@@ -1,3 +1,7 @@
+// Load .env BEFORE any module that reads process.env at import time
+// (notably src/config.ts). In production the host provides the variables
+// directly and there is no .env file, which dotenv treats as a no-op.
+import "dotenv/config";
 import { createApp } from "./app.js";
 import { config } from "./config.js";
 import { prisma } from "./prisma.js";

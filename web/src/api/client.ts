@@ -36,7 +36,20 @@ export function setToken(token: string | null) {
   }
 }
 
-const BASE = "/api";
+/**
+ * Base URL for API calls.
+ *
+ * In development this stays a relative "/api" and is forwarded to the Express
+ * server by the Vite proxy. In production there is no proxy, so set
+ * VITE_API_URL (e.g. "https://krishibazaar-api.onrender.com/api") at build time.
+ */
+function resolveBase(value: string | undefined): string {
+  const raw = (value ?? "").trim();
+  if (!raw) return "/api";
+  return raw.endsWith("/") ? raw.slice(0, -1) : raw;
+}
+
+const BASE = resolveBase(import.meta.env.VITE_API_URL);
 
 interface RequestOptions {
   method?: string;
@@ -62,7 +75,7 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
     });
   } catch {
     throw new ApiClientError(0, {
-      message: "Cannot reach the server. Is the API running on port 4000?",
+      message: `Cannot reach the server at ${BASE}. Is the API running?`,
       code: "NETWORK"
     });
   }
