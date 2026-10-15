@@ -38,7 +38,7 @@ export interface UseLoginFlowResult {
  * A one-time passcode is requested from the API and verified server-side
  * (`POST /api/auth/otp/request` → `POST /api/auth/otp/verify`). Outside
  * production the API echoes the generated code back as `devCode`, which is
- * pre-filled here so the flow stays testable without an SMS provider.
+ * pre-filled here so the flow stays testable without a message provider.
  */
 export function useLoginFlow(): UseLoginFlowResult {
   const { requestOtp: sendOtp, signInWithOtp } = useSession();
@@ -77,7 +77,7 @@ export function useLoginFlow(): UseLoginFlowResult {
     setSubmitting(true);
     try {
       const res = await sendOtp(phone, role);
-      // Pre-filled in development so the flow works without an SMS provider.
+      // Pre-filled in development so the flow works without a message provider.
       setOtpState(res.devCode ?? "");
       setSecondsLeft(RESEND_SECONDS);
       setStep("OTP");

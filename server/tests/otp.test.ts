@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { createApp } from "../src/app.js";
 import { prisma } from "../src/prisma.js";
 import { issueOtp, verifyOtp } from "../src/services/otpService.js";
-import { sendOtpSms } from "../src/services/smsService.js";
+import { getMessageProvider, sendOtpMessage, toE164 } from "../src/services/messageService.js";
 
 const app = createApp();
 
@@ -89,9 +89,24 @@ describe("OTP service", () => {
   });
 });
 
-describe("SMS delivery", () => {
+describe("Message delivery", () => {
   it("resolves a provider and sends without throwing outside production", async () => {
-    await expect(sendOtpSms("9000000000", "123456", 300)).resolves.toBeUndefined();
+    await expect(
+      sendOtpMessage({ phone: "9000000000", code: "123456", expirySeconds: 300 })
+    ).resolves.toBeUndefined();
+  });
+
+  it("uses the console provider by default", () => {
+    expect(getMessageProvider().name).toBe("console");
+  });
+
+  it("normalises a bare 10-digit number into E.164 with the country code", () => {
+    expect(toE164("9700001234")).toBe("+919700001234");
+  });
+
+  it("leaves numbers that already carry a country code untouched", () => {
+    expect(toE164("919700001234")).toBe("+919700001234");
+    expect(toE164("+91 9700001234")).toBe("+919700001234");
   });
 });
 

@@ -197,7 +197,7 @@ export default function LoginPage() {
               <div className="flex items-center justify-between text-on-surface-variant text-[11px]">
                 <span className="flex items-center gap-1">
                   <Icon name="chat" className="text-[13px] text-primary" />
-                  OTP via SMS or WhatsApp
+                  OTP via WhatsApp
                 </span>
                 <span className="font-medium text-primary">Instant Delivery</span>
               </div>

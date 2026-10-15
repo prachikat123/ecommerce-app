@@ -8,7 +8,7 @@ import { prisma } from "../prisma.js";
 import { otpRequestSchema, otpVerifySchema, sessionSchema, updateProfileSchema } from "../schemas/index.js";
 import { getCart } from "../services/cartService.js";
 import { issueOtp, VERIFY_FAILURE_MESSAGE, verifyOtp } from "../services/otpService.js";
-import { sendOtpSms } from "../services/smsService.js";
+import { sendOtpMessage } from "../services/messageService.js";
 import { ApiError } from "../utils/ApiError.js";
 
 const router = Router();
@@ -101,11 +101,11 @@ async function establishSession(input: { phone: string; role: string; name?: str
 
 /**
  * POST /api/auth/otp/request
- * Issues a one-time passcode for a phone number and delivers it by SMS.
+ * Issues a one-time passcode for a phone number and delivers it on WhatsApp.
  *
  * With `OTP_DEV_BYPASS` enabled (the default outside production) the generated
  * code is also returned as `devCode` so the UI can pre-fill it without a live
- * SMS provider.
+ * message provider.
  */
 router.post(
   "/otp/request",
@@ -120,7 +120,7 @@ router.post(
     };
     if (config.otpDevBypass) body.devCode = code;
 
-    await sendOtpSms(phone, code, config.otpExpirySeconds);
+    await sendOtpMessage({ phone, code, expirySeconds: config.otpExpirySeconds });
 
     res.json(body);
   })
@@ -143,8 +143,8 @@ router.post(
       name?: string;
     };
 
-    // Development bypass: accept the well-known code when no SMS provider is
-    // available. Never active in production (enforced by the config guard).
+    // Development bypass: accept the well-known code when no message provider
+    // is available. Never active in production (enforced by the config guard).
     const bypassed = config.otpDevBypass && code === config.otpDevCode;
     if (!bypassed) {
       const result = await verifyOtp({ phone, code });

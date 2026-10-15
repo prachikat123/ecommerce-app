@@ -155,7 +155,7 @@ export default function OrderSuccessPage() {
           </p>
           <div className="mt-space-md inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-low text-on-surface-variant shadow-sm">
             <Icon name="mark_chat_unread" className="text-primary text-[18px]" />
-            <span className="font-label-md text-label-md">Updates sent via SMS &amp; WhatsApp</span>
+            <span className="font-label-md text-label-md">Updates sent via WhatsApp</span>
           </div>
         </div>
 

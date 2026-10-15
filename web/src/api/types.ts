@@ -167,7 +167,7 @@ export interface OtpRequestResponse {
   expiresInSeconds: number;
   /**
    * Present only outside production (`OTP_DEV_BYPASS`): the generated code, so
-   * the UI can pre-fill it when no SMS provider is configured.
+   * the UI can pre-fill it when no message provider is configured.
    */
   devCode?: string;
 }

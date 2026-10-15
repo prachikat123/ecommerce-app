@@ -50,6 +50,9 @@ if (isProduction) {
   if (readEnv("OTP_DEV_BYPASS") === "true") {
     problems.push("OTP_DEV_BYPASS must not be enabled");
   }
+  if ((readEnv("MESSAGE_PROVIDER") ?? "console") === "console") {
+    problems.push('MESSAGE_PROVIDER must be a real channel (e.g. "whatsapp"), not "console"');
+  }
 }
 if (problems.length > 0) {
   throw new Error(
@@ -86,13 +89,25 @@ export const config = {
   otpMaxAttempts: Number(readEnv("OTP_MAX_ATTEMPTS") ?? "5"),
   /**
    * When true, the login flow accepts a development code and returns it in the
-   * API response instead of sending an SMS. Defaults to on outside production.
+   * API response instead of sending a message. Defaults to on outside production.
    */
   otpDevBypass: readEnv("OTP_DEV_BYPASS") ? readEnv("OTP_DEV_BYPASS") === "true" : !isProduction,
   /** The code accepted while `otpDevBypass` is on. */
   otpDevCode: readEnv("OTP_DEV_CODE") ?? "123456",
-  /** Outbound SMS provider for one-time passcodes. */
-  smsProvider: readEnv("SMS_PROVIDER") ?? "console"
+  /**
+   * How one-time passcodes are delivered. "console" only logs the code and is
+   * for development; "whatsapp" sends through the WhatsApp Business Cloud API.
+   */
+  messageProvider: readEnv("MESSAGE_PROVIDER") ?? "console",
+  /** Country code prepended to a bare 10-digit number when building E.164. */
+  otpCountryCode: readEnv("OTP_COUNTRY_CODE") ?? "+91",
+  /** WhatsApp Business Cloud API (Meta) credentials. */
+  whatsappPhoneNumberId: readEnv("WHATSAPP_PHONE_NUMBER_ID"),
+  whatsappAccessToken: readEnv("WHATSAPP_ACCESS_TOKEN"),
+  /** Pre-approved message template that carries the code as a variable. */
+  whatsappTemplateName: readEnv("WHATSAPP_TEMPLATE_NAME") ?? "krishibazaar_otp",
+  whatsappTemplateLanguage: readEnv("WHATSAPP_TEMPLATE_LANGUAGE") ?? "en",
+  whatsappApiVersion: readEnv("WHATSAPP_API_VERSION") ?? "v21.0"
 } as const;
 
 export type Config = typeof config;

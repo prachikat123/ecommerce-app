@@ -88,8 +88,8 @@ and sends it, then `POST /api/auth/otp/verify` checks it and starts the session.
 Codes are stored hashed, are single-use, expire after `OTP_EXPIRY_SECONDS`, and
 are invalidated after `OTP_MAX_ATTEMPTS` wrong guesses. Outside production the
 API returns the code as `devCode` and the login screen pre-fills it, so the flow
-works without an SMS provider; the SMS seam lives in
-`server/src/services/smsService.ts` and defaults to logging the message.
+works without a live message provider; the messaging seam lives in
+`server/src/services/messageService.ts` and defaults to logging the message.
 
 A plain sign-in then lands on the **profile page** (`/profile`); the *Dealer /
 FPO Portal* opens the Seller Hub, and gated actions still return to the page
@@ -280,11 +280,17 @@ CORS_ORIGIN="http://localhost:5173"
 | `JWT_EXPIRES_IN` | `30d` | Token lifetime |
 | `CORS_ORIGIN` | `*` | Comma-separated allow-list; must be explicit in production |
 | `AUTH_RATE_LIMIT` | `10` | Sign-in attempts per IP per 10 minutes |
-| `OTP_DEV_BYPASS` | on outside prod | Accept `OTP_DEV_CODE` instead of sending an SMS |
+| `OTP_DEV_BYPASS` | on outside prod | Accept `OTP_DEV_CODE` instead of sending a message |
 | `OTP_DEV_CODE` | `123456` | Code accepted while the bypass is on |
 | `OTP_EXPIRY_SECONDS` | `300` | How long a code stays valid |
 | `OTP_MAX_ATTEMPTS` | `5` | Wrong guesses before a code is invalidated |
-| `SMS_PROVIDER` | `console` | Outbound SMS provider (`console` just logs the code) |
+| `MESSAGE_PROVIDER` | `console` | Delivery channel: `console` (logs only) or `whatsapp` |
+| `OTP_COUNTRY_CODE` | `+91` | Country code prepended to bare 10-digit numbers for E.164 |
+| `WHATSAPP_PHONE_NUMBER_ID` | — | **Required** for `whatsapp`; from Meta Business Manager |
+| `WHATSAPP_ACCESS_TOKEN` | — | **Required** for `whatsapp`; Meta system-user token |
+| `WHATSAPP_TEMPLATE_NAME` | `krishibazaar_otp` | Pre-approved template with `{{1}}`=code, `{{2}}`=minutes |
+| `WHATSAPP_TEMPLATE_LANGUAGE` | `en` | Template language code |
+| `WHATSAPP_API_VERSION` | `v21.0` | Graph API version for the Cloud API |
 
 `web/.env` (optional — see `web/.env.example`):
 
@@ -371,6 +377,43 @@ frontend to the API.
 Point your domain at the web host, then set `CORS_ORIGIN` on the API to that
 exact origin and redeploy.
 
+### Step 5 — WhatsApp passcode delivery
+
+Passcodes are delivered over WhatsApp by default in production (`MESSAGE_PROVIDER=whatsapp`).
+This uses the **WhatsApp Business Cloud API (Meta)**, which requires three things:
+
+1. **A WhatsApp Business account** — create one at [business.whatsapp.com](https://business.whatsapp.com)
+   and verify your business.
+2. **A phone number ID and access token** — in [Meta Business Manager](https://business.facebook.com/settings)
+   go to *WhatsApp > API Setup*, then copy the **Phone number ID** and generate a
+   **system-user access token** (set it to never expire).
+3. **A pre-approved message template** — templates carrying codes must be approved
+   by Meta before they can be sent. Create a template with two body variables:
+
+   ```
+   {{1}} is your KrishiBazaar verification code. It expires in {{2}} minute(s).
+   ```
+
+   Then set `WHATSAPP_TEMPLATE_NAME` to the template name you chose.
+
+Set these in your hosting provider's environment and redeploy:
+
+```env
+MESSAGE_PROVIDER=whatsapp
+WHATSAPP_PHONE_NUMBER_ID=<from Meta Business Manager>
+WHATSAPP_ACCESS_TOKEN=<system-user token>
+WHATSAPP_TEMPLATE_NAME=krishibazaar_otp
+```
+
+**Testing:** you can test the WhatsApp send without a real template by keeping
+`MESSAGE_PROVIDER=console` in a staging environment — the code is logged to the
+server console instead of being sent. In production, the config guard refuses to
+start with `MESSAGE_PROVIDER=console`, so codes are always actually delivered.
+
+**Phone numbers:** the API stores bare 10-digit Indian numbers (e.g. `9700001234`).
+The WhatsApp provider prepends `OTP_COUNTRY_CODE` (default `+91`) and sends the
+message to the resulting E.164 number (`+919700001234`).
+
 ### Production checklist
 
 - [ ] PostgreSQL provisioned; schema applied with `prisma migrate deploy`
@@ -378,7 +421,7 @@ exact origin and redeploy.
 - [ ] `CORS_ORIGIN` set to the real domain, not `*`
 - [ ] `VITE_API_URL` set at web build time
 - [ ] `OTP_DEV_BYPASS` disabled (the config guard enforces this in production)
-- [ ] `SMS_PROVIDER` set to a real provider with credentials, so passcodes are delivered
+- [ ] `MESSAGE_PROVIDER` set to `whatsapp` with its credentials, so passcodes are delivered
 - [ ] Automated database backups, with a restore tested once
 - [ ] Error tracking (e.g. Sentry) and an uptime check on `/api/health`
 - [ ] CI green on `main` (`.github/workflows/ci.yml`)
